@@ -1,0 +1,278 @@
+import { useState, useEffect } from "react";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+import { Volume2, VolumeX } from "lucide-react";
+
+interface Card {
+  suit: string;
+  rank: string;
+  value: number;
+}
+
+export default function Blackjack() {
+  const [balance, setBalance] = useState(1000);
+  const [bet, setBet] = useState(10);
+  const [gameState, setGameState] = useState<"betting" | "playing" | "finished">("betting");
+  const [playerCards, setPlayerCards] = useState<Card[]>([]);
+  const [dealerCards, setDealerCards] = useState<Card[]>([]);
+  const [message, setMessage] = useState("");
+  const [soundEnabled, setSoundEnabled] = useState(true);
+
+  const suits = ["♠", "♥", "♦", "♣"];
+  const ranks = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+
+  const getCardValue = (rank: string): number => {
+    if (rank === "K" || rank === "Q" || rank === "J") return 10;
+    if (rank === "A") return 11;
+    return parseInt(rank);
+  };
+
+  const createDeck = (): Card[] => {
+    const deck: Card[] = [];
+    for (let suit of suits) {
+      for (let rank of ranks) {
+        deck.push({ suit, rank, value: getCardValue(rank) });
+      }
+    }
+    return deck.sort(() => Math.random() - 0.5);
+  };
+
+  const calculateHand = (cards: Card[]): number => {
+    let total = 0;
+    let aces = 0;
+
+    for (let card of cards) {
+      if (card.rank === "A") {
+        aces++;
+        total += 11;
+      } else if (card.rank === "K" || card.rank === "Q" || card.rank === "J") {
+        total += 10;
+      } else {
+        total += parseInt(card.rank);
+      }
+    }
+
+    while (total > 21 && aces > 0) {
+      total -= 10;
+      aces--;
+    }
+
+    return total;
+  };
+
+  const startGame = () => {
+    if (bet > balance) {
+      setMessage("Insufficient balance!");
+      return;
+    }
+
+    const deck = createDeck();
+    const player = [deck.pop()!, deck.pop()!];
+    const dealer = [deck.pop()!, deck.pop()!];
+
+    setPlayerCards(player);
+    setDealerCards([dealer[0]]);
+    setGameState("playing");
+    setMessage("Your turn!");
+  };
+
+  const hit = () => {
+    const deck = createDeck();
+    const newCard = deck.pop()!;
+    const newPlayerCards = [...playerCards, newCard];
+    setPlayerCards(newPlayerCards);
+
+    const playerTotal = calculateHand(newPlayerCards);
+    if (playerTotal > 21) {
+      endGame(newPlayerCards, dealerCards, true);
+    }
+  };
+
+  const stand = () => {
+    let newDealerCards = [...dealerCards];
+    const deck = createDeck();
+
+    while (calculateHand(newDealerCards) < 17) {
+      newDealerCards.push(deck.pop()!);
+    }
+
+    endGame(playerCards, newDealerCards, false);
+  };
+
+  const endGame = (finalPlayerCards: Card[], finalDealerCards: Card[], playerBusted: boolean) => {
+    const playerTotal = calculateHand(finalPlayerCards);
+    const dealerTotal = calculateHand(finalDealerCards);
+
+    let result = "";
+    let winAmount = 0;
+
+    if (playerBusted) {
+      result = "You busted! Dealer wins.";
+    } else if (dealerTotal > 21) {
+      result = "Dealer busted! You win!";
+      winAmount = bet * 2;
+    } else if (playerTotal > dealerTotal) {
+      result = "You win!";
+      winAmount = bet * 2;
+    } else if (playerTotal < dealerTotal) {
+      result = "Dealer wins!";
+    } else {
+      result = "It's a tie!";
+      winAmount = bet;
+    }
+
+    setDealerCards(finalDealerCards);
+    setMessage(result);
+    setBalance(balance - bet + winAmount);
+    setGameState("finished");
+  };
+
+  const resetGame = () => {
+    setPlayerCards([]);
+    setDealerCards([]);
+    setGameState("betting");
+    setMessage("");
+  };
+
+  const playerTotal = calculateHand(playerCards);
+  const dealerTotal = calculateHand(dealerCards);
+
+  return (
+    <div className="min-h-screen flex flex-col bg-background">
+      <Navigation />
+
+      <div className="flex-grow container py-8">
+        {/* Game Header */}
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-3xl font-bold text-foreground">Blackjack</h1>
+          <div className="flex items-center gap-4">
+            <div className="bg-card border border-border px-4 py-2 rounded-lg">
+              <p className="text-sm text-muted-foreground">Balance</p>
+              <p className="text-2xl font-bold text-primary">{balance}</p>
+            </div>
+            <button
+              onClick={() => setSoundEnabled(!soundEnabled)}
+              className="p-2 hover:bg-card rounded-lg transition-colors"
+            >
+              {soundEnabled ? (
+                <Volume2 className="w-6 h-6" />
+              ) : (
+                <VolumeX className="w-6 h-6" />
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* Game Area */}
+        <div className="bg-gradient-to-b from-card to-card/50 border border-border rounded-xl p-8 mb-8">
+          {/* Dealer Section */}
+          <div className="mb-12">
+            <h2 className="text-lg font-semibold text-foreground mb-4">Dealer</h2>
+            <div className="flex gap-4 mb-2">
+              {dealerCards.map((card, idx) => (
+                <div
+                  key={idx}
+                  className="w-24 h-32 bg-white rounded-lg border-2 border-primary flex items-center justify-center text-2xl font-bold text-primary shadow-lg"
+                >
+                  {card.rank}
+                  {card.suit}
+                </div>
+              ))}
+            </div>
+            {gameState !== "betting" && (
+              <p className="text-sm text-muted-foreground">
+                Total: <span className="text-primary font-bold">{dealerTotal}</span>
+              </p>
+            )}
+          </div>
+
+          {/* Player Section */}
+          <div>
+            <h2 className="text-lg font-semibold text-foreground mb-4">Your Hand</h2>
+            <div className="flex gap-4 mb-2">
+              {playerCards.map((card, idx) => (
+                <div
+                  key={idx}
+                  className="w-24 h-32 bg-white rounded-lg border-2 border-secondary flex items-center justify-center text-2xl font-bold text-secondary shadow-lg"
+                >
+                  {card.rank}
+                  {card.suit}
+                </div>
+              ))}
+            </div>
+            {gameState !== "betting" && (
+              <p className="text-sm text-muted-foreground">
+                Total: <span className="text-secondary font-bold">{playerTotal}</span>
+              </p>
+            )}
+          </div>
+        </div>
+
+        {/* Betting Section */}
+        {gameState === "betting" && (
+          <div className="bg-card border border-border rounded-xl p-6 mb-8">
+            <h3 className="text-lg font-semibold text-foreground mb-4">Place Your Bet</h3>
+            <div className="flex flex-col sm:flex-row gap-4 items-end">
+              <div className="flex-grow">
+                <label className="text-sm text-muted-foreground mb-2 block">Bet Amount</label>
+                <input
+                  type="number"
+                  value={bet}
+                  onChange={(e) => setBet(Math.max(1, parseInt(e.target.value) || 1))}
+                  max={balance}
+                  className="w-full bg-background border border-border rounded-lg px-4 py-2 text-foreground"
+                />
+              </div>
+              <Button
+                onClick={startGame}
+                disabled={bet > balance}
+                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+              >
+                Deal Cards
+              </Button>
+            </div>
+          </div>
+        )}
+
+        {/* Message */}
+        {message && (
+          <div className="bg-card border border-primary rounded-lg p-4 mb-8 text-center">
+            <p className="text-lg font-semibold text-primary">{message}</p>
+          </div>
+        )}
+
+        {/* Action Buttons */}
+        {gameState === "playing" && (
+          <div className="flex gap-4 justify-center mb-8">
+            <Button
+              onClick={hit}
+              className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold"
+            >
+              Hit
+            </Button>
+            <Button
+              onClick={stand}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+            >
+              Stand
+            </Button>
+          </div>
+        )}
+
+        {gameState === "finished" && (
+          <div className="flex gap-4 justify-center mb-8">
+            <Button
+              onClick={resetGame}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+            >
+              Play Again
+            </Button>
+          </div>
+        )}
+      </div>
+
+      <Footer />
+    </div>
+  );
+}

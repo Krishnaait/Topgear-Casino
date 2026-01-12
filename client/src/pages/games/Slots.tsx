@@ -1,0 +1,175 @@
+import { useState } from "react";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+import { Volume2, VolumeX } from "lucide-react";
+
+export default function Slots() {
+  const [balance, setBalance] = useState(1000);
+  const [bet, setBet] = useState(10);
+  const [spinning, setSpinning] = useState(false);
+  const [reels, setReels] = useState(["🍎", "🍎", "🍎"]);
+  const [message, setMessage] = useState("Click Spin to play!");
+  const [soundEnabled, setSoundEnabled] = useState(true);
+
+  const symbols = ["🍎", "🍊", "🍋", "🍌", "🍇", "🍓", "💎", "⭐"];
+
+  const spin = () => {
+    if (bet > balance) {
+      setMessage("Insufficient balance!");
+      return;
+    }
+
+    setSpinning(true);
+    setMessage("Spinning...");
+    setBalance(balance - bet);
+
+    // Simulate spinning animation
+    let spinCount = 0;
+    const spinInterval = setInterval(() => {
+      setReels([
+        symbols[Math.floor(Math.random() * symbols.length)],
+        symbols[Math.floor(Math.random() * symbols.length)],
+        symbols[Math.floor(Math.random() * symbols.length)],
+      ]);
+      spinCount++;
+
+      if (spinCount > 20) {
+        clearInterval(spinInterval);
+        const finalReels = [
+          symbols[Math.floor(Math.random() * symbols.length)],
+          symbols[Math.floor(Math.random() * symbols.length)],
+          symbols[Math.floor(Math.random() * symbols.length)],
+        ];
+        setReels(finalReels);
+        checkWin(finalReels);
+        setSpinning(false);
+      }
+    }, 100);
+  };
+
+  const checkWin = (finalReels: string[]) => {
+    if (finalReels[0] === finalReels[1] && finalReels[1] === finalReels[2]) {
+      const winAmount = bet * 10;
+      setBalance((prev) => prev + winAmount);
+      setMessage(`🎉 You won ${winAmount} coins! All three match!`);
+    } else if (finalReels[0] === finalReels[1] || finalReels[1] === finalReels[2]) {
+      const winAmount = bet * 3;
+      setBalance((prev) => prev + winAmount);
+      setMessage(`✨ You won ${winAmount} coins! Two symbols match!`);
+    } else {
+      setMessage("Try again!");
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col bg-background">
+      <Navigation />
+
+      <div className="flex-grow container py-8">
+        {/* Game Header */}
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-3xl font-bold text-foreground">Video Slots</h1>
+          <div className="flex items-center gap-4">
+            <div className="bg-card border border-border px-4 py-2 rounded-lg">
+              <p className="text-sm text-muted-foreground">Balance</p>
+              <p className="text-2xl font-bold text-primary">{balance}</p>
+            </div>
+            <button
+              onClick={() => setSoundEnabled(!soundEnabled)}
+              className="p-2 hover:bg-card rounded-lg transition-colors"
+            >
+              {soundEnabled ? (
+                <Volume2 className="w-6 h-6" />
+              ) : (
+                <VolumeX className="w-6 h-6" />
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* Game Area */}
+        <div className="bg-gradient-to-b from-card to-card/50 border border-border rounded-xl p-8 mb-8">
+          {/* Reels */}
+          <div className="flex justify-center gap-6 mb-8">
+            {reels.map((symbol, idx) => (
+              <div
+                key={idx}
+                className={`w-24 h-24 bg-white rounded-lg border-4 border-primary flex items-center justify-center text-6xl shadow-lg ${
+                  spinning ? "animate-bounce" : ""
+                }`}
+              >
+                {symbol}
+              </div>
+            ))}
+          </div>
+
+          {/* Message */}
+          <div className="bg-card border border-primary rounded-lg p-4 mb-8 text-center">
+            <p className="text-lg font-semibold text-primary">{message}</p>
+          </div>
+
+          {/* Betting Section */}
+          <div className="bg-card/50 border border-border rounded-lg p-6 mb-8">
+            <h3 className="text-lg font-semibold text-foreground mb-4">Bet Amount</h3>
+            <div className="flex flex-col sm:flex-row gap-4 items-end">
+              <div className="flex-grow">
+                <input
+                  type="number"
+                  value={bet}
+                  onChange={(e) => setBet(Math.max(1, parseInt(e.target.value) || 1))}
+                  max={balance}
+                  className="w-full bg-background border border-border rounded-lg px-4 py-2 text-foreground"
+                />
+              </div>
+              <div className="flex gap-2">
+                <Button
+                  onClick={() => setBet(Math.max(1, bet - 10))}
+                  variant="outline"
+                  className="border-border"
+                >
+                  -
+                </Button>
+                <Button
+                  onClick={() => setBet(bet + 10)}
+                  variant="outline"
+                  className="border-border"
+                >
+                  +
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          {/* Spin Button */}
+          <div className="flex justify-center">
+            <Button
+              onClick={spin}
+              disabled={spinning || bet > balance}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg h-12 px-12"
+            >
+              {spinning ? "Spinning..." : "SPIN"}
+            </Button>
+          </div>
+        </div>
+
+        {/* Payouts Info */}
+        <div className="bg-card border border-border rounded-xl p-6">
+          <h3 className="text-lg font-semibold text-foreground mb-4">Payouts</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-muted-foreground">
+            <div>
+              <p>🎯 All 3 symbols match: <span className="text-primary font-bold">10x bet</span></p>
+              <p>✨ 2 symbols match: <span className="text-primary font-bold">3x bet</span></p>
+              <p>❌ No match: <span className="text-destructive font-bold">Lose bet</span></p>
+            </div>
+            <div className="text-xs">
+              <p className="text-muted-foreground">Example: If you bet 10 coins and get 3 matching symbols, you win 100 coins!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <Footer />
+    </div>
+  );
+}
