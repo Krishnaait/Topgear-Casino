@@ -34,35 +34,35 @@ export default function CreditTopUp() {
 
   return (
     <>
-      {/* Low Balance Alert and Top-up Button */}
-      {balance < 100 && (
-        <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-40 flex flex-col gap-3 sm:gap-4">
-          {/* Daily Bonus Button */}
-          <button
-            onClick={handleDailyBonus}
-            disabled={!canClaimBonus()}
-            className={`flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold text-sm sm:text-base transition-all ${
-              canClaimBonus()
-                ? "bg-gradient-to-r from-primary to-primary/80 text-primary-foreground hover:shadow-lg hover:shadow-primary/50 cursor-pointer"
-                : "bg-muted text-muted-foreground cursor-not-allowed opacity-60"
-            }`}
-          >
-            <Gift className="w-4 sm:w-5 h-4 sm:h-5" />
-            <span className="hidden sm:inline">Daily Bonus</span>
-            <span className="sm:hidden">Bonus</span>
-          </button>
+      {/* Floating Action Buttons - Always Visible */}
+      <div className="fixed bottom-4 sm:bottom-6 left-4 sm:left-6 z-40 flex flex-col gap-2 sm:gap-3">
+        {/* Top-up Button */}
+        <button
+          onClick={() => setShowTopUpModal(true)}
+          className="flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-3 rounded-lg font-semibold text-sm sm:text-base bg-gradient-to-r from-accent to-accent/80 text-accent-foreground hover:shadow-lg hover:shadow-accent/50 transition-all whitespace-nowrap"
+          title="Get free credits"
+        >
+          <Plus className="w-4 sm:w-5 h-4 sm:h-5 flex-shrink-0" />
+          <span className="hidden sm:inline">Free Credits</span>
+          <span className="sm:hidden">Credits</span>
+        </button>
 
-          {/* Top-up Button */}
-          <button
-            onClick={() => setShowTopUpModal(true)}
-            className="flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold text-sm sm:text-base bg-gradient-to-r from-accent to-accent/80 text-accent-foreground hover:shadow-lg hover:shadow-accent/50 transition-all"
-          >
-            <Plus className="w-4 sm:w-5 h-4 sm:h-5" />
-            <span className="hidden sm:inline">Free Credits</span>
-            <span className="sm:hidden">Credits</span>
-          </button>
-        </div>
-      )}
+        {/* Daily Bonus Button */}
+        <button
+          onClick={handleDailyBonus}
+          disabled={!canClaimBonus()}
+          className={`flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-3 rounded-lg font-semibold text-sm sm:text-base transition-all whitespace-nowrap ${
+            canClaimBonus()
+              ? "bg-gradient-to-r from-primary to-primary/80 text-primary-foreground hover:shadow-lg hover:shadow-primary/50 cursor-pointer"
+              : "bg-muted text-muted-foreground cursor-not-allowed opacity-60"
+          }`}
+          title={canClaimBonus() ? "Claim daily bonus" : `Available in ${timeUntilBonus}`}
+        >
+          <Gift className="w-4 sm:w-5 h-4 sm:h-5 flex-shrink-0" />
+          <span className="hidden sm:inline">Daily Bonus</span>
+          <span className="sm:hidden">Bonus</span>
+        </button>
+      </div>
 
       {/* Top-up Modal */}
       {showTopUpModal && (
