@@ -1,5 +1,4 @@
 import { Link } from "wouter";
-import { Button } from "@/components/ui/button";
 
 interface GameCardProps {
   id: string;
@@ -38,15 +37,15 @@ export default function GameCard({ id, title, description, icon, href, comingSoo
 
         {/* Button */}
         {!comingSoon ? (
-          <Link href={href} className="w-full">
-            <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
+          <Link href={href} className="inline-block w-full">
+            <span className="inline-flex w-full items-center justify-center bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-2 px-4 rounded-md transition-colors">
               Play Now
-            </Button>
+            </span>
           </Link>
         ) : (
-          <Button disabled className="w-full bg-muted text-muted-foreground cursor-not-allowed">
+          <span className="inline-flex w-full items-center justify-center bg-muted text-muted-foreground font-semibold py-2 px-4 rounded-md cursor-not-allowed">
             Coming Soon
-          </Button>
+          </span>
         )}
       </div>
     </div>

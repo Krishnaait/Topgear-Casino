@@ -20,23 +20,23 @@ export default function Footer() {
             <h4 className="font-semibold text-foreground mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/games">
-                  <a className="text-muted-foreground hover:text-primary transition-colors">Games</a>
+                <Link href="/games" className="text-muted-foreground hover:text-primary transition-colors">
+                  Games
                 </Link>
               </li>
               <li>
-                <Link href="/how-to-play">
-                  <a className="text-muted-foreground hover:text-primary transition-colors">How to Play</a>
+                <Link href="/how-to-play" className="text-muted-foreground hover:text-primary transition-colors">
+                  How to Play
                 </Link>
               </li>
               <li>
-                <Link href="/about">
-                  <a className="text-muted-foreground hover:text-primary transition-colors">About Us</a>
+                <Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">
+                  About Us
                 </Link>
               </li>
               <li>
-                <Link href="/faq">
-                  <a className="text-muted-foreground hover:text-primary transition-colors">FAQ</a>
+                <Link href="/faq" className="text-muted-foreground hover:text-primary transition-colors">
+                  FAQ
                 </Link>
               </li>
             </ul>
@@ -47,23 +47,23 @@ export default function Footer() {
             <h4 className="font-semibold text-foreground mb-4">Legal</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/terms">
-                  <a className="text-muted-foreground hover:text-primary transition-colors">Terms & Conditions</a>
+                <Link href="/terms" className="text-muted-foreground hover:text-primary transition-colors">
+                  Terms & Conditions
                 </Link>
               </li>
               <li>
-                <Link href="/privacy">
-                  <a className="text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a>
+                <Link href="/privacy" className="text-muted-foreground hover:text-primary transition-colors">
+                  Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/disclaimer">
-                  <a className="text-muted-foreground hover:text-primary transition-colors">Disclaimer</a>
+                <Link href="/disclaimer" className="text-muted-foreground hover:text-primary transition-colors">
+                  Disclaimer
                 </Link>
               </li>
               <li>
-                <Link href="/responsible-gaming">
-                  <a className="text-muted-foreground hover:text-primary transition-colors">Responsible Gaming</a>
+                <Link href="/responsible-gaming" className="text-muted-foreground hover:text-primary transition-colors">
+                  Responsible Gaming
                 </Link>
               </li>
             </ul>
@@ -76,8 +76,8 @@ export default function Footer() {
               <li>Email: support@topgear.com</li>
               <li>Phone: +91 (080) XXXX-XXXX</li>
               <li>
-                <Link href="/contact">
-                  <a className="text-primary hover:underline">Contact Form</a>
+                <Link href="/contact" className="text-primary hover:underline">
+                  Contact Form
                 </Link>
               </li>
             </ul>

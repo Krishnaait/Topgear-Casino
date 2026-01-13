@@ -1,5 +1,4 @@
 import { Link } from "wouter";
-import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import GameCard from "@/components/GameCard";
@@ -100,15 +99,15 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/games">
-                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg h-12 px-8">
+              <Link href="/games" className="inline-block">
+                <span className="inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg h-12 px-8 rounded-md transition-colors">
                   Play Free Now
-                </Button>
+                </span>
               </Link>
-              <Link href="/how-to-play">
-                <Button variant="outline" className="border-primary text-primary hover:bg-primary/10 font-semibold text-lg h-12 px-8">
+              <Link href="/how-to-play" className="inline-block">
+                <span className="inline-flex items-center justify-center border border-primary text-primary hover:bg-primary/10 font-semibold text-lg h-12 px-8 rounded-md transition-colors">
                   Learn How to Play
-                </Button>
+                </span>
               </Link>
             </div>
           </div>
@@ -202,10 +201,10 @@ export default function Home() {
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Join thousands of players enjoying free casino gaming. No money, no risk, just pure entertainment!
           </p>
-          <Link href="/games">
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg h-12 px-8">
+          <Link href="/games" className="inline-block">
+            <span className="inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg h-12 px-8 rounded-md transition-colors">
               Start Playing Now
-            </Button>
+            </span>
           </Link>
         </div>
       </section>
