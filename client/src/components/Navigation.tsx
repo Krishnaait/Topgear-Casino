@@ -1,9 +1,11 @@
 import { Link } from "wouter";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { useBalance } from "@/contexts/BalanceContext";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const { balance } = useBalance();
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -32,17 +34,29 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 hover:bg-card rounded-lg transition-colors flex-shrink-0"
-          >
-            {isOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
-          </button>
+          {/* Right Side - Balance and Menu */}
+          <div className="flex items-center gap-2 sm:gap-4">
+            {/* Balance Display */}
+            <div className="flex items-center gap-1 sm:gap-2 bg-gradient-to-r from-primary to-primary/80 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg border border-primary/50 shadow-md">
+              <span className="text-lg sm:text-xl">💰</span>
+              <div className="flex flex-col">
+                <span className="text-xs text-primary-foreground/80 hidden sm:inline font-semibold">Balance</span>
+                <span className="text-sm sm:text-lg font-bold text-primary-foreground">{balance.toLocaleString()}</span>
+              </div>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="lg:hidden p-2 hover:bg-card rounded-lg transition-colors flex-shrink-0"
+            >
+              {isOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
