@@ -154,7 +154,7 @@ export default function Blackjack() {
       <Navigation />
 
       {/* Hero Section with Image */}
-      <section className="relative h-40 sm:h-60 md:h-80 overflow-hidden mb-4 sm:mb-6 md:mb-8">
+      <section className="relative h-24 sm:h-32 md:h-40 overflow-hidden mb-2 sm:mb-3 md:mb-4">
         <img
           src="/images/blackjack-hero.png"
           alt="Blackjack Game"
