@@ -100,10 +100,23 @@ export default function Keno() {
     <div className="min-h-screen flex flex-col bg-background">
       <Navigation />
 
+      {/* Hero Section with Image */}
+      <section className="relative h-80 overflow-hidden mb-8">
+        <img
+          src="/images/keno-hero.png"
+          alt="Keno Game"
+          className="w-full h-full object-cover animate-fade-in"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background"></div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <h1 className="text-5xl md:text-6xl font-bold text-white drop-shadow-lg">KENO</h1>
+        </div>
+      </section>
+
       <div className="flex-grow container py-8">
         {/* Game Header */}
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-foreground">Keno</h1>
+          <h1 className="text-3xl font-bold text-foreground hidden">Keno</h1>
           <div className="flex items-center gap-4">
             <div className="bg-card border border-border px-4 py-2 rounded-lg">
               <p className="text-sm text-muted-foreground">Balance</p>
@@ -224,6 +237,14 @@ export default function Keno() {
       </div>
 
       <Footer />
+
+      <style>{`
+        @keyframes fade-in {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        .animate-fade-in { animation: fade-in 1s ease-out; }
+      `}</style>
     </div>
   );
 }
