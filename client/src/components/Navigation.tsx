@@ -22,7 +22,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group flex-shrink-0">
-            <img src="/images/topgear-logo.png" alt="TOPGEAR Casino" className="h-10 sm:h-12 w-auto" />
+            <img src="/images/topgear-logo.webp" alt="TOPGEAR Casino" className="h-10 sm:h-12 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}

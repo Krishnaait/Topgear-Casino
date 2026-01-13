@@ -74,7 +74,7 @@ export default function Home() {
       <section
         className="relative py-12 sm:py-20 md:py-32 overflow-hidden"
         style={{
-          backgroundImage: "url('/images/hero-casino.png')",
+          backgroundImage: "url('/images/hero-casino.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

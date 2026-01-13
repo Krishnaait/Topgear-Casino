@@ -1,0 +1,45 @@
+# Robots.txt for TOPGEAR Social Casino
+# This file tells search engines which pages to crawl and which to ignore
+
+User-agent: *
+Allow: /
+Allow: /games
+Allow: /how-to-play
+Allow: /about
+Allow: /faq
+Allow: /contact
+Allow: /terms
+Allow: /privacy
+Allow: /disclaimer
+Allow: /responsible-gaming
+
+# Disallow admin or private pages (if any)
+Disallow: /admin
+Disallow: /private
+Disallow: /api
+
+# Crawl delay to prevent server overload (in seconds)
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://topgear-casino.manus.space/sitemap.xml
+
+# Specific rules for Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Specific rules for Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Block bad bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /

@@ -70,7 +70,7 @@ export default function Slots() {
       {/* Hero Section with Image */}
       <section className="relative h-24 sm:h-32 md:h-40 overflow-hidden mb-2 sm:mb-3 md:mb-4">
         <img
-          src="/images/slots-hero.png"
+          src="/images/slots-hero.webp"
           alt="Slots Game"
           className="w-full h-full object-cover animate-fade-in"
         />

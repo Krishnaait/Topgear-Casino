@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Home Page -->
+  <url>
+    <loc>https://topgear-casino.manus.space/</loc>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://topgear-casino.manus.space/images/hero-casino.webp</image:loc>
+      <image:title>TOPGEAR Casino - Play Free Casino Games</image:title>
+    </image:image>
+  </url>
+
+  <!-- Games Page -->
+  <url>
+    <loc>https://topgear-casino.manus.space/games</loc>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Individual Game Pages -->
+  <url>
+    <loc>https://topgear-casino.manus.space/games/blackjack</loc>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://topgear-casino.manus.space/images/blackjack-hero.webp</image:loc>
+      <image:title>Blackjack - Beat the Dealer to 21</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://topgear-casino.manus.space/games/slots</loc>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://topgear-casino.manus.space/images/slots-hero.webp</image:loc>
+      <image:title>Video Slots - Spin the Reels</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://topgear-casino.manus.space/games/roulette</loc>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://topgear-casino.manus.space/images/roulette-hero.webp</image:loc>
+      <image:title>Roulette - Spin the Wheel</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://topgear-casino.manus.space/games/spin-wheel</loc>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://topgear-casino.manus.space/images/spinwheel-hero.webp</image:loc>
+      <image:title>Spin Wheel - Daily Bonus Spins</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://topgear-casino.manus.space/games/keno</loc>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://topgear-casino.manus.space/images/keno-hero.webp</image:loc>
+      <image:title>Keno - Pick Your Numbers</image:title>
+    </image:image>
+  </url>
+
+  <!-- Information Pages -->
+  <url>
+    <loc>https://topgear-casino.manus.space/how-to-play</loc>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://topgear-casino.manus.space/about</loc>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://topgear-casino.manus.space/faq</loc>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://topgear-casino.manus.space/contact</loc>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Legal Pages -->
+  <url>
+    <loc>https://topgear-casino.manus.space/terms</loc>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://topgear-casino.manus.space/privacy</loc>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://topgear-casino.manus.space/disclaimer</loc>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://topgear-casino.manus.space/responsible-gaming</loc>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>
