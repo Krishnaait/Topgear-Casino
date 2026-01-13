@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Volume2, VolumeX } from "lucide-react";
 import { useBalance } from "@/contexts/BalanceContext";
+import { playSound } from "@/lib/soundEffects";
 
 interface Card {
   suit: string;
@@ -77,6 +78,7 @@ export default function Blackjack() {
     setGameState("playing");
     setMessage("Your turn!");
     setBalance(balance - bet);
+    if (soundEnabled) playSound('deal');
   };
 
   const hit = () => {
@@ -84,6 +86,7 @@ export default function Blackjack() {
     const newCard = deck.pop()!;
     const newPlayerCards = [...playerCards, newCard];
     setPlayerCards(newPlayerCards);
+    if (soundEnabled) playSound('deal');
 
     const playerTotal = calculateHand(newPlayerCards);
     if (playerTotal > 21) {
@@ -102,31 +105,37 @@ export default function Blackjack() {
     endGame(playerCards, newDealerCards, false);
   };
 
-  const endGame = (finalPlayerCards: Card[], finalDealerCards: Card[], playerBusted: boolean) => {
-    const playerTotal = calculateHand(finalPlayerCards);
-    const dealerTotal = calculateHand(finalDealerCards);
+  const endGame = (playerCards: Card[], dealerCards: Card[], playerBusted: boolean) => {
+    const playerTotal = calculateHand(playerCards);
+    const dealerTotal = calculateHand(dealerCards);
 
     let result = "";
     let winAmount = 0;
 
     if (playerBusted) {
-      result = "You busted! Dealer wins.";
+      result = "You busted! Dealer wins!";
+      if (soundEnabled) playSound('lose');
     } else if (dealerTotal > 21) {
       result = "Dealer busted! You win!";
       winAmount = bet * 2;
+      if (soundEnabled) playSound('win');
     } else if (playerTotal > dealerTotal) {
       result = "You win!";
       winAmount = bet * 2;
-    } else if (playerTotal < dealerTotal) {
+      if (soundEnabled) playSound('win');
+    } else if (dealerTotal > playerTotal) {
       result = "Dealer wins!";
+      if (soundEnabled) playSound('lose');
     } else {
       result = "It's a tie!";
       winAmount = bet;
     }
 
-    setDealerCards(finalDealerCards);
+    if (winAmount > 0) {
+      setBalance(balance + winAmount);
+    }
+
     setMessage(result);
-    setBalance(balance + winAmount);
     setGameState("finished");
   };
 
@@ -188,7 +197,8 @@ export default function Blackjack() {
               {dealerCards.map((card, idx) => (
                 <div
                   key={idx}
-                  className="w-24 h-32 bg-white rounded-lg border-2 border-primary flex items-center justify-center text-2xl font-bold text-primary shadow-lg"
+                  className="w-24 h-32 bg-white rounded-lg border-2 border-primary flex items-center justify-center text-2xl font-bold text-primary shadow-lg animate-card-deal"
+                  style={{ animationDelay: `${idx * 0.2}s` }}
                 >
                   {card.rank}
                   {card.suit}
@@ -205,11 +215,12 @@ export default function Blackjack() {
           {/* Player Section */}
           <div>
             <h2 className="text-lg font-semibold text-foreground mb-4">Your Hand</h2>
-            <div className="flex gap-4 mb-2">
+            <div className="flex gap-4">
               {playerCards.map((card, idx) => (
                 <div
                   key={idx}
-                  className="w-24 h-32 bg-white rounded-lg border-2 border-secondary flex items-center justify-center text-2xl font-bold text-secondary shadow-lg"
+                  className="w-24 h-32 bg-white rounded-lg border-2 border-primary flex items-center justify-center text-2xl font-bold text-primary shadow-lg animate-card-deal"
+                  style={{ animationDelay: `${idx * 0.2}s` }}
                 >
                   {card.rank}
                   {card.suit}
@@ -295,6 +306,25 @@ export default function Blackjack() {
           to { opacity: 1; }
         }
         .animate-fade-in { animation: fade-in 1s ease-out; }
+        
+        @keyframes card-flip {
+          0% { transform: rotateY(90deg); opacity: 0; }
+          50% { transform: rotateY(45deg); }
+          100% { transform: rotateY(0deg); opacity: 1; }
+        }
+        .animate-card-flip { animation: card-flip 0.6s ease-out; }
+        
+        @keyframes card-deal {
+          0% { transform: translateX(-100px) translateY(-100px) scale(0.8); opacity: 0; }
+          100% { transform: translateX(0) translateY(0) scale(1); opacity: 1; }
+        }
+        .animate-card-deal { animation: card-deal 0.5s ease-out; }
+        
+        @keyframes pulse-glow {
+          0%, 100% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
+          50% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.6); }
+        }
+        .animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
       `}</style>
     </div>
   );

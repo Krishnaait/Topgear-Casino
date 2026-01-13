@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Volume2, VolumeX } from "lucide-react";
 import { useBalance } from "@/contexts/BalanceContext";
+import { playSound } from "@/lib/soundEffects";
 
 export default function SpinWheel() {
   const { balance, setBalance } = useBalance();
@@ -53,6 +54,7 @@ export default function SpinWheel() {
     const randomRotation = Math.random() * 360 + 1800; // Multiple rotations
 
     setRotation(randomRotation);
+    if (soundEnabled) playSound('spin');
 
     setTimeout(() => {
       setBalance(balance + randomReward);
@@ -60,6 +62,7 @@ export default function SpinWheel() {
       setLastSpinTime(Date.now());
       localStorage.setItem("lastSpinTime", Date.now().toString());
       setSpinning(false);
+      if (soundEnabled) playSound('win');
     }, 3000);
   };
 
@@ -117,10 +120,10 @@ export default function SpinWheel() {
               {/* Wheel */}
               <svg
                 viewBox="0 0 200 200"
-                className="w-full h-full"
+                className={`w-full h-full ${spinning ? "animate-spin-fast" : ""}`}
                 style={{
                   transform: `rotate(${rotation}deg)`,
-                  transition: spinning ? "transform 3s ease-out" : "none",
+                  transition: spinning ? "none" : "transform 0.5s ease-out",
                 }}
               >
                 {rewards.map((reward, idx) => {
