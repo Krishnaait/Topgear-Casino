@@ -20,22 +20,18 @@ export default function Navigation() {
       <div className="container">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/">
-            <a className="flex items-center gap-2 group">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">TG</span>
-              </div>
-              <span className="font-bold text-xl gradient-text hidden sm:inline">TOPGEAR</span>
-            </a>
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
+              <span className="text-primary-foreground font-bold text-lg">TG</span>
+            </div>
+            <span className="font-bold text-xl gradient-text hidden sm:inline">TOPGEAR</span>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href}>
-                <a className="px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors duration-300">
-                  {link.label}
-                </a>
+              <Link key={link.href} href={link.href} className="px-4 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors duration-300">
+                {link.label}
               </Link>
             ))}
           </div>
@@ -69,13 +65,13 @@ export default function Navigation() {
           <div className="md:hidden border-t border-border bg-card">
             <div className="flex flex-col p-4 gap-2">
               {navLinks.map((link) => (
-                <Link key={link.href} href={link.href}>
-                  <a
-                    className="px-4 py-2 text-sm font-medium text-foreground hover:text-primary hover:bg-background rounded-lg transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {link.label}
-                  </a>
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="px-4 py-2 text-sm font-medium text-foreground hover:text-primary hover:bg-background rounded-lg transition-colors block"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.label}
                 </Link>
               ))}
             </div>

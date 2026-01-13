@@ -38,7 +38,7 @@ export default function GameCard({ id, title, description, icon, href, comingSoo
 
         {/* Button */}
         {!comingSoon ? (
-          <Link href={href}>
+          <Link href={href} className="w-full">
             <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
               Play Now
             </Button>
