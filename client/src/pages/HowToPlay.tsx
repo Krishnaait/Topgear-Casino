@@ -1,7 +1,11 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { ChevronDown } from "lucide-react";
+import { useState } from "react";
 
 export default function HowToPlay() {
+  const [expandedGame, setExpandedGame] = useState<string | null>("blackjack");
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navigation />
@@ -11,223 +15,441 @@ export default function HowToPlay() {
         <div className="container">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">How to Play</h1>
           <p className="text-lg text-muted-foreground max-w-2xl">
-            Learn how to get started and make the most of your TOPGEAR Casino experience.
+            Master every game at TOPGEAR Casino with our comprehensive guides. Learn strategies, understand odds, and become an expert player.
           </p>
         </div>
       </section>
 
-      {/* Getting Started */}
+      {/* Quick Start */}
       <section className="py-16 md:py-24">
-        <div className="container max-w-3xl">
-          <h2 className="text-3xl font-bold text-foreground mb-8">Getting Started</h2>
+        <div className="container max-w-4xl">
+          <h2 className="text-3xl font-bold text-foreground mb-8">Quick Start Guide</h2>
 
-          <div className="space-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-12">
             {[
-              {
-                step: "1",
-                title: "No Sign-Up Required",
-                description: "Simply visit TOPGEAR Casino and start playing immediately. No registration, no login, no hassle!",
-              },
-              {
-                step: "2",
-                title: "Receive Starting Coins",
-                description: "Every player starts with 1,000 virtual coins. These are completely free and have no real-world value.",
-              },
-              {
-                step: "3",
-                title: "Choose Your Game",
-                description: "Browse our collection of games: Blackjack, Video Slots, Roulette, Spin Wheel, and Keno.",
-              },
-              {
-                step: "4",
-                title: "Place Your Bet",
-                description: "Select how many coins you want to bet. You can adjust your bet amount at any time.",
-              },
-              {
-                step: "5",
-                title: "Play & Win",
-                description: "Follow the game rules and try to win! Winning coins are added to your balance instantly.",
-              },
-            ].map((item, idx) => (
-              <div key={idx} className="flex gap-6">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
-                    <span className="text-lg font-bold text-primary-foreground">{item.step}</span>
+              { num: "1", title: "Visit Site", desc: "No signup needed" },
+              { num: "2", title: "Get Coins", desc: "Start with 1,000" },
+              { num: "3", title: "Pick Game", desc: "Choose your favorite" },
+              { num: "4", title: "Place Bet", desc: "Select coin amount" },
+              { num: "5", title: "Play & Win", desc: "Enjoy the game" },
+            ].map((step, idx) => (
+              <div key={idx} className="bg-card border border-border rounded-lg p-4 text-center">
+                <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="font-bold text-primary-foreground">{step.num}</span>
+                </div>
+                <h3 className="font-semibold text-foreground mb-1">{step.title}</h3>
+                <p className="text-xs text-muted-foreground">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Coin System */}
+          <div className="bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/20 rounded-xl p-8 mb-12">
+            <h3 className="text-2xl font-bold text-foreground mb-6">Understanding the Coin System</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div>
+                <h4 className="font-bold text-primary mb-2">Starting Balance</h4>
+                <p className="text-muted-foreground text-sm mb-3">
+                  Every player begins with <strong>1,000 virtual coins</strong> at no cost. These coins are yours to use immediately.
+                </p>
+                <div className="bg-card border border-border rounded p-3">
+                  <p className="text-sm font-mono text-primary">💰 1,000 coins</p>
+                </div>
+              </div>
+
+              <div>
+                <h4 className="font-bold text-primary mb-2">Daily Bonus</h4>
+                <p className="text-muted-foreground text-sm mb-3">
+                  Spin the Daily Spin Wheel every 24 hours to claim <strong>200 free coins</strong>. It's your daily reward!
+                </p>
+                <div className="bg-card border border-border rounded p-3">
+                  <p className="text-sm font-mono text-primary">🎁 200 coins/day</p>
+                </div>
+              </div>
+
+              <div>
+                <h4 className="font-bold text-primary mb-2">Reset Bonus</h4>
+                <p className="text-muted-foreground text-sm mb-3">
+                  Run out of coins? Get <strong>500 bonus coins</strong> to continue playing and enjoying the games.
+                </p>
+                <div className="bg-card border border-border rounded p-3">
+                  <p className="text-sm font-mono text-primary">🔄 500 coins</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Detailed Game Guides */}
+      <section className="py-16 md:py-24 bg-card/30">
+        <div className="container max-w-4xl">
+          <h2 className="text-3xl font-bold text-foreground mb-12">Detailed Game Guides</h2>
+
+          <div className="space-y-4">
+            {/* Blackjack */}
+            <div className="bg-card border border-border rounded-xl overflow-hidden">
+              <button
+                onClick={() => setExpandedGame(expandedGame === "blackjack" ? null : "blackjack")}
+                className="w-full flex items-center justify-between p-6 hover:bg-card/50 transition-colors"
+              >
+                <div className="flex items-center gap-4">
+                  <span className="text-3xl">🎴</span>
+                  <div className="text-left">
+                    <h3 className="text-xl font-bold text-foreground">Blackjack</h3>
+                    <p className="text-sm text-muted-foreground">Beat the dealer to 21</p>
                   </div>
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">{item.title}</h3>
-                  <p className="text-muted-foreground">{item.description}</p>
+                <ChevronDown
+                  className={`w-5 h-5 text-primary transition-transform ${
+                    expandedGame === "blackjack" ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {expandedGame === "blackjack" && (
+                <div className="px-6 pb-6 border-t border-border space-y-4">
+                  <div>
+                    <h4 className="font-bold text-foreground mb-2">Objective</h4>
+                    <p className="text-muted-foreground">
+                      Get a hand value as close to 21 as possible without going over. Beat the dealer's hand to win coins equal to your bet. If you tie with the dealer, your bet is returned.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground mb-2">Card Values</h4>
+                    <ul className="text-muted-foreground space-y-1 text-sm">
+                      <li>• <strong>Number Cards (2-10):</strong> Worth their face value</li>
+                      <li>• <strong>Face Cards (J, Q, K):</strong> Worth 10 points each</li>
+                      <li>• <strong>Ace:</strong> Worth 1 or 11 points (automatically chosen for best hand)</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground mb-2">How to Play</h4>
+                    <ol className="text-muted-foreground space-y-2 text-sm list-decimal list-inside">
+                      <li>Place your bet by selecting coin amount</li>
+                      <li>You and dealer each receive 2 cards (your cards are visible, dealer shows 1 card)</li>
+                      <li>Choose to <strong>Hit</strong> (get another card) or <strong>Stand</strong> (keep your hand)</li>
+                      <li>Dealer automatically plays by house rules (hits on 16 or less, stands on 17+)</li>
+                      <li>Highest hand without busting wins</li>
+                    </ol>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground mb-2">Payouts</h4>
+                    <ul className="text-muted-foreground space-y-1 text-sm">
+                      <li>• <strong>Win:</strong> 2x your bet</li>
+                      <li>• <strong>Blackjack (21 with 2 cards):</strong> 2.5x your bet</li>
+                      <li>• <strong>Tie:</strong> Your bet is returned</li>
+                      <li>• <strong>Bust or Lose:</strong> Lose your bet</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground mb-2">Strategy Tips</h4>
+                    <ul className="text-muted-foreground space-y-1 text-sm">
+                      <li>• Always hit on hands totaling 11 or less</li>
+                      <li>• Stand on hands totaling 17 or more</li>
+                      <li>• Be cautious with hands between 12-16</li>
+                      <li>• Remember the dealer must hit on 16 and stand on 17</li>
+                    </ul>
+                  </div>
                 </div>
-              </div>
-            ))}
+              )}
+            </div>
+
+            {/* Video Slots */}
+            <div className="bg-card border border-border rounded-xl overflow-hidden">
+              <button
+                onClick={() => setExpandedGame(expandedGame === "slots" ? null : "slots")}
+                className="w-full flex items-center justify-between p-6 hover:bg-card/50 transition-colors"
+              >
+                <div className="flex items-center gap-4">
+                  <span className="text-3xl">🎰</span>
+                  <div className="text-left">
+                    <h3 className="text-xl font-bold text-foreground">Video Slots</h3>
+                    <p className="text-sm text-muted-foreground">Spin and match symbols</p>
+                  </div>
+                </div>
+                <ChevronDown
+                  className={`w-5 h-5 text-primary transition-transform ${
+                    expandedGame === "slots" ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {expandedGame === "slots" && (
+                <div className="px-6 pb-6 border-t border-border space-y-4">
+                  <div>
+                    <h4 className="font-bold text-foreground mb-2">Objective</h4>
+                    <p className="text-muted-foreground">
+                      Spin the reels and match symbols to win coins. The more symbols you match, the bigger your prize!
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground mb-2">How to Play</h4>
+                    <ol className="text-muted-foreground space-y-2 text-sm list-decimal list-inside">
+                      <li>Select your bet amount (10, 25, 50, or 100 coins)</li>
+                      <li>Click the Spin button to start the reels</li>
+                      <li>Watch the reels spin and stop randomly</li>
+                      <li>Matching symbols in the center line wins coins</li>
+                      <li>Spin again or adjust your bet</li>
+                    </ol>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground mb-2">Winning Combinations</h4>
+                    <ul className="text-muted-foreground space-y-1 text-sm">
+                      <li>• <strong>3 Matching Symbols:</strong> Win 10x your bet</li>
+                      <li>• <strong>2 Matching Symbols:</strong> Win 3x your bet</li>
+                      <li>• <strong>No Match:</strong> Lose your bet</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground mb-2">Symbols</h4>
+                    <p className="text-muted-foreground text-sm">
+                      The game features various symbols including fruits, numbers, and special icons. Each spin is completely random with equal chances for all outcomes.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground mb-2">Tips</h4>
+                    <ul className="text-muted-foreground space-y-1 text-sm">
+                      <li>• Start with smaller bets to practice</li>
+                      <li>• Understand that slots are purely luck-based</li>
+                      <li>• Set a budget and stick to it</li>
+                      <li>• Enjoy the entertainment value</li>
+                    </ul>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Roulette */}
+            <div className="bg-card border border-border rounded-xl overflow-hidden">
+              <button
+                onClick={() => setExpandedGame(expandedGame === "roulette" ? null : "roulette")}
+                className="w-full flex items-center justify-between p-6 hover:bg-card/50 transition-colors"
+              >
+                <div className="flex items-center gap-4">
+                  <span className="text-3xl">🎡</span>
+                  <div className="text-left">
+                    <h3 className="text-xl font-bold text-foreground">Roulette</h3>
+                    <p className="text-sm text-muted-foreground">Pick a number and spin</p>
+                  </div>
+                </div>
+                <ChevronDown
+                  className={`w-5 h-5 text-primary transition-transform ${
+                    expandedGame === "roulette" ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {expandedGame === "roulette" && (
+                <div className="px-6 pb-6 border-t border-border space-y-4">
+                  <div>
+                    <h4 className="font-bold text-foreground mb-2">Objective</h4>
+                    <p className="text-muted-foreground">
+                      Select a number from 0 to 36, place your bet, and watch the wheel spin. If the ball lands on your number, you win big!
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground mb-2">How to Play</h4>
+                    <ol className="text-muted-foreground space-y-2 text-sm list-decimal list-inside">
+                      <li>Choose a number from 0 to 36 on the roulette table</li>
+                      <li>Select your bet amount</li>
+                      <li>Click Spin to start the wheel</li>
+                      <li>The wheel spins and a ball lands on a random number</li>
+                      <li>If it matches your number, you win!</li>
+                    </ol>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground mb-2">Payouts</h4>
+                    <ul className="text-muted-foreground space-y-1 text-sm">
+                      <li>• <strong>Correct Number:</strong> Win 36x your bet</li>
+                      <li>• <strong>Wrong Number:</strong> Lose your bet</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground mb-2">Odds & Probability</h4>
+                    <p className="text-muted-foreground text-sm">
+                      With 37 possible numbers (0-36), your chance of winning on any single spin is 1 in 37, or approximately 2.7%. Each spin is completely independent and random.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground mb-2">Strategy Considerations</h4>
+                    <ul className="text-muted-foreground space-y-1 text-sm">
+                      <li>• Roulette is a game of pure chance</li>
+                      <li>• No strategy can improve your odds</li>
+                      <li>• Play for entertainment, not income</li>
+                      <li>• Manage your coin budget wisely</li>
+                    </ul>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Spin Wheel */}
+            <div className="bg-card border border-border rounded-xl overflow-hidden">
+              <button
+                onClick={() => setExpandedGame(expandedGame === "spin-wheel" ? null : "spin-wheel")}
+                className="w-full flex items-center justify-between p-6 hover:bg-card/50 transition-colors"
+              >
+                <div className="flex items-center gap-4">
+                  <span className="text-3xl">🌟</span>
+                  <div className="text-left">
+                    <h3 className="text-xl font-bold text-foreground">Spin Wheel</h3>
+                    <p className="text-sm text-muted-foreground">Daily free bonus spins</p>
+                  </div>
+                </div>
+                <ChevronDown
+                  className={`w-5 h-5 text-primary transition-transform ${
+                    expandedGame === "spin-wheel" ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {expandedGame === "spin-wheel" && (
+                <div className="px-6 pb-6 border-t border-border space-y-4">
+                  <div>
+                    <h4 className="font-bold text-foreground mb-2">Objective</h4>
+                    <p className="text-muted-foreground">
+                      Spin the wheel once every 24 hours to win free bonus coins. No bet required!
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground mb-2">How to Play</h4>
+                    <ol className="text-muted-foreground space-y-2 text-sm list-decimal list-inside">
+                      <li>Visit the Spin Wheel section</li>
+                      <li>Click the Spin button (available once per 24 hours)</li>
+                      <li>The wheel spins and stops on a random segment</li>
+                      <li>You win the coins shown on that segment</li>
+                      <li>Coins are added to your balance instantly</li>
+                    </ol>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground mb-2">Possible Winnings</h4>
+                    <ul className="text-muted-foreground space-y-1 text-sm">
+                      <li>• Minimum: 25 coins</li>
+                      <li>• Maximum: 300 coins</li>
+                      <li>• Average: Around 100-150 coins</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground mb-2">Key Features</h4>
+                    <ul className="text-muted-foreground space-y-1 text-sm">
+                      <li>• <strong>Free to Play:</strong> No coins required to spin</li>
+                      <li>• <strong>Daily Reset:</strong> One spin every 24 hours</li>
+                      <li>• <strong>No Risk:</strong> You cannot lose coins on this game</li>
+                      <li>• <strong>Instant Payout:</strong> Winnings added immediately</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground mb-2">Tips</h4>
+                    <ul className="text-muted-foreground space-y-1 text-sm">
+                      <li>• Never miss your daily spin for free coins</li>
+                      <li>• Use winnings to play other games</li>
+                      <li>• Combine with other bonuses to maximize coins</li>
+                    </ul>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Keno */}
+            <div className="bg-card border border-border rounded-xl overflow-hidden">
+              <button
+                onClick={() => setExpandedGame(expandedGame === "keno" ? null : "keno")}
+                className="w-full flex items-center justify-between p-6 hover:bg-card/50 transition-colors"
+              >
+                <div className="flex items-center gap-4">
+                  <span className="text-3xl">🎲</span>
+                  <div className="text-left">
+                    <h3 className="text-xl font-bold text-foreground">Keno</h3>
+                    <p className="text-sm text-muted-foreground">Pick numbers and win</p>
+                  </div>
+                </div>
+                <ChevronDown
+                  className={`w-5 h-5 text-primary transition-transform ${
+                    expandedGame === "keno" ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {expandedGame === "keno" && (
+                <div className="px-6 pb-6 border-t border-border space-y-4">
+                  <div>
+                    <h4 className="font-bold text-foreground mb-2">Objective</h4>
+                    <p className="text-muted-foreground">
+                      Select numbers from 1 to 80, place your bet, and watch as 20 numbers are drawn. The more of your numbers that match, the more you win!
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground mb-2">How to Play</h4>
+                    <ol className="text-muted-foreground space-y-2 text-sm list-decimal list-inside">
+                      <li>Select 1 to 10 numbers from the grid (1-80)</li>
+                      <li>Choose your bet amount</li>
+                      <li>Click Play to start the draw</li>
+                      <li>20 numbers are randomly drawn</li>
+                      <li>Your winnings depend on how many numbers match</li>
+                    </ol>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground mb-2">Payout Table</h4>
+                    <div className="bg-card/50 border border-border rounded p-3 text-sm">
+                      <p className="text-muted-foreground mb-2"><strong>Selecting 10 numbers:</strong></p>
+                      <ul className="text-muted-foreground space-y-1 text-xs">
+                        <li>• 10 matches: 1000x your bet</li>
+                        <li>• 9 matches: 100x your bet</li>
+                        <li>• 8 matches: 20x your bet</li>
+                        <li>• 7 matches: 5x your bet</li>
+                        <li>• 6 or fewer: Lose your bet</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground mb-2">Strategy Tips</h4>
+                    <ul className="text-muted-foreground space-y-1 text-sm">
+                      <li>• Start with fewer numbers (3-5) for better odds</li>
+                      <li>• More numbers = higher potential payout but lower odds</li>
+                      <li>• Spread numbers across the entire grid</li>
+                      <li>• Remember each draw is independent</li>
+                    </ul>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Credit System */}
-      <section className="py-16 md:py-24 bg-card/30">
-        <div className="container max-w-3xl">
-          <h2 className="text-3xl font-bold text-foreground mb-8">Credit System</h2>
-
-          <div className="space-y-6">
-            <div className="bg-card border border-border rounded-xl p-6">
-              <h3 className="text-lg font-bold text-foreground mb-2">Starting Balance</h3>
-              <p className="text-muted-foreground">
-                Every new player receives <strong>1,000 virtual coins</strong> to begin playing. Use these coins to explore different games and find your favorites.
-              </p>
-            </div>
-
-            <div className="bg-card border border-border rounded-xl p-6">
-              <h3 className="text-lg font-bold text-foreground mb-2">Daily Bonus</h3>
-              <p className="text-muted-foreground">
-                Claim <strong>200 free coins every 24 hours</strong>. Simply visit the Daily Spin Wheel to collect your bonus. This helps you keep playing even if you run out of coins.
-              </p>
-            </div>
-
-            <div className="bg-card border border-border rounded-xl p-6">
-              <h3 className="text-lg font-bold text-foreground mb-2">Reset Option</h3>
-              <p className="text-muted-foreground">
-                When you've used all your coins, you can get a <strong>500 coin reset bonus</strong> to continue playing. This ensures you never run out of coins permanently.
-              </p>
-            </div>
-
-            <div className="bg-card border border-border rounded-xl p-6">
-              <h3 className="text-lg font-bold text-foreground mb-2">Winning Coins</h3>
-              <p className="text-muted-foreground">
-                Win coins by playing games successfully. Winning coins are added to your balance instantly and can be used for future games.
-              </p>
-            </div>
-
-            <div className="bg-card border border-border rounded-xl p-6">
-              <h3 className="text-lg font-bold text-foreground mb-2">Virtual Coins Only</h3>
-              <p className="text-muted-foreground">
-                All coins are virtual and have <strong>no real-world value</strong>. They cannot be withdrawn, sold, or exchanged for real money. They're purely for gameplay and entertainment.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Game Rules */}
+      {/* General Tips */}
       <section className="py-16 md:py-24">
-        <div className="container max-w-3xl">
-          <h2 className="text-3xl font-bold text-foreground mb-8">Game Rules</h2>
+        <div className="container max-w-4xl">
+          <h2 className="text-3xl font-bold text-foreground mb-8">General Gaming Tips</h2>
 
-          <div className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               {
-                game: "Blackjack",
-                rules: [
-                  "Try to get a hand value closer to 21 than the dealer without going over 21",
-                  "Face cards (K, Q, J) are worth 10 points",
-                  "Aces can be worth 1 or 11 points",
-                  "Hit to get another card, Stand to keep your hand",
-                  "If you go over 21, you bust and lose your bet",
-                  "If you beat the dealer's hand, you win 2x your bet",
-                ],
+                title: "Understand the Odds",
+                description: "Each game has different odds and payouts. Learn them before playing to make informed decisions.",
               },
               {
-                game: "Video Slots",
-                rules: [
-                  "Spin the reels and try to match symbols",
-                  "All 3 symbols matching: Win 10x your bet",
-                  "2 symbols matching: Win 3x your bet",
-                  "No matches: Lose your bet",
-                  "Adjust your bet before spinning",
-                  "Results are completely random",
-                ],
+                title: "Manage Your Coins",
+                description: "Set a budget for your gaming session and stick to it. Don't bet more than you can afford to lose.",
               },
               {
-                game: "Roulette",
-                rules: [
-                  "Select a number from 0 to 36",
-                  "Place your bet",
-                  "The wheel spins and a ball lands on a number",
-                  "If the ball lands on your number, you win 36x your bet",
-                  "If it doesn't match, you lose your bet",
-                  "Each spin is independent",
-                ],
+                title: "Play for Fun",
+                description: "Remember, these are games of entertainment. Enjoy the experience rather than focusing solely on winning.",
               },
               {
-                game: "Spin Wheel",
-                rules: [
-                  "Spin once every 24 hours for free",
-                  "No bet required - it's a bonus spin",
-                  "Win between 25 and 300 coins",
-                  "Bonus coins are added to your balance",
-                  "Come back tomorrow for another spin",
-                  "Perfect for daily free coins",
-                ],
+                title: "Take Breaks",
+                description: "Gaming should be enjoyable. Take regular breaks to keep the experience fresh and fun.",
               },
               {
-                game: "Keno",
-                rules: [
-                  "Select 1 to 10 numbers from 1 to 80",
-                  "Place your bet",
-                  "20 numbers are drawn randomly",
-                  "Winnings depend on how many of your numbers match",
-                  "More matches = bigger winnings",
-                  "Up to 1000x your bet for 10 matches",
-                ],
+                title: "Try All Games",
+                description: "Each game offers a unique experience. Explore different games to find your favorites.",
               },
-            ].map((item, idx) => (
-              <div key={idx} className="bg-card border border-border rounded-xl p-6">
-                <h3 className="text-lg font-bold text-foreground mb-4">{item.game}</h3>
-                <ul className="space-y-2">
-                  {item.rules.map((rule, ruleIdx) => (
-                    <li key={ruleIdx} className="flex gap-3 text-muted-foreground">
-                      <span className="text-primary flex-shrink-0">•</span>
-                      <span>{rule}</span>
-                    </li>
-                  ))}
-                </ul>
+              {
+                title: "Use Bonuses Wisely",
+                description: "Claim your daily bonuses and use them strategically to extend your playtime.",
+              },
+            ].map((tip, idx) => (
+              <div key={idx} className="bg-card border border-border rounded-lg p-6">
+                <h3 className="font-bold text-foreground mb-2">{tip.title}</h3>
+                <p className="text-muted-foreground text-sm">{tip.description}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Tips & Strategies */}
-      <section className="py-16 md:py-24 bg-card/30">
-        <div className="container max-w-3xl">
-          <h2 className="text-3xl font-bold text-foreground mb-8">Tips & Strategies</h2>
-
-          <div className="space-y-6">
-            <div className="bg-card border border-border rounded-xl p-6">
-              <h3 className="text-lg font-bold text-foreground mb-2">Start Small</h3>
-              <p className="text-muted-foreground">
-                Begin with small bets to learn how each game works. As you get comfortable, you can increase your bets.
-              </p>
-            </div>
-
-            <div className="bg-card border border-border rounded-xl p-6">
-              <h3 className="text-lg font-bold text-foreground mb-2">Claim Daily Bonuses</h3>
-              <p className="text-muted-foreground">
-                Don't forget to spin the Daily Spin Wheel every 24 hours to get free coins. This keeps your balance topped up.
-              </p>
-            </div>
-
-            <div className="bg-card border border-border rounded-xl p-6">
-              <h3 className="text-lg font-bold text-foreground mb-2">Understand the Odds</h3>
-              <p className="text-muted-foreground">
-                Each game has different odds and payouts. Learn the rules before playing to make informed decisions.
-              </p>
-            </div>
-
-            <div className="bg-card border border-border rounded-xl p-6">
-              <h3 className="text-lg font-bold text-foreground mb-2">Play for Fun</h3>
-              <p className="text-muted-foreground">
-                Remember, this is entertainment! Enjoy the games, don't stress about wins or losses, and have fun!
-              </p>
-            </div>
-
-            <div className="bg-card border border-border rounded-xl p-6">
-              <h3 className="text-lg font-bold text-foreground mb-2">Try All Games</h3>
-              <p className="text-muted-foreground">
-                Each game is unique. Try them all to find which ones you enjoy the most.
-              </p>
-            </div>
           </div>
         </div>
       </section>
