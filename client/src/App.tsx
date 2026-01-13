@@ -19,6 +19,7 @@ import Contact from "./pages/Contact";
 import Terms from "./pages/legal/Terms";
 import Privacy from "./pages/legal/Privacy";
 import Disclaimer from "./pages/legal/Disclaimer";
+import Todo from "./pages/Todo";
 
 
 function Router() {
@@ -39,6 +40,7 @@ function Router() {
       <Route path={"/terms"} component={Terms} />
       <Route path={"/privacy"} component={Privacy} />
       <Route path={"/disclaimer"} component={Disclaimer} />
+      <Route path={"/todo"} component={Todo} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
