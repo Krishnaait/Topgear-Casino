@@ -159,12 +159,11 @@ export default function Keno() {
                   disabled={drawing}
                   className={`p-3 rounded-lg font-semibold transition-all text-sm ${
                     selectedNumbers.includes(num)
-                      ? "bg-primary text-primary-foreground border-2 border-primary animate-number-pop"
+                      ? "bg-primary text-primary-foreground border-2 border-primary"
                       : drawnNumbers.includes(num)
-                      ? "bg-secondary text-secondary-foreground border-2 border-secondary animate-number-pop"
+                      ? "bg-secondary text-secondary-foreground border-2 border-secondary"
                       : "bg-card border border-border text-foreground hover:border-primary"
                   }`}
-                  style={drawnNumbers.includes(num) ? { animationDelay: `${drawnNumbers.indexOf(num) * 0.1}s` } : {}}
                 >
                   {num}
                 </button>
@@ -246,19 +245,6 @@ export default function Keno() {
           to { opacity: 1; }
         }
         .animate-fade-in { animation: fade-in 1s ease-out; }
-        
-        @keyframes number-pop {
-          0% { transform: scale(0.5); opacity: 0; }
-          50% { transform: scale(1.15); }
-          100% { transform: scale(1); opacity: 1; }
-        }
-        .animate-number-pop { animation: number-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
-        
-        @keyframes pulse-highlight {
-          0%, 100% { box-shadow: 0 0 10px rgba(192, 132, 252, 0.3); }
-          50% { box-shadow: 0 0 25px rgba(192, 132, 252, 0.8); }
-        }
-        .animate-pulse-highlight { animation: pulse-highlight 1s ease-in-out infinite; }
       `}</style>
     </div>
   );
