@@ -1,12 +1,9 @@
 import { Link } from "wouter";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { useBalance } from "@/contexts/BalanceContext";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
-  const { balance } = useBalance();
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -18,7 +15,7 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-background border-b border-border">
+    <nav className="sticky top-0 z-40 bg-background border-b border-border">
       <div className="container px-3 sm:px-4 lg:px-6">
         <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo */}
@@ -35,28 +32,17 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* Coin Balance */}
-          <div className="flex items-center gap-2 sm:gap-4">
-            <div className="hidden xs:flex items-center gap-1 sm:gap-2 bg-card px-2 sm:px-4 py-1 sm:py-2 rounded-lg border border-border">
-              <span className="text-lg sm:text-2xl">💰</span>
-              <div className="flex flex-col">
-                <span className="text-xs text-muted-foreground hidden sm:inline">Balance</span>
-                <span className="text-sm sm:text-lg font-bold text-primary">{balance.toLocaleString()}</span>
-              </div>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2 hover:bg-card rounded-lg transition-colors flex-shrink-0"
-            >
-              {isOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
-          </div>
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="lg:hidden p-2 hover:bg-card rounded-lg transition-colors flex-shrink-0"
+          >
+            {isOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
+          </button>
         </div>
 
         {/* Mobile Navigation */}
