@@ -12,7 +12,6 @@ export default function Navigation() {
     { href: "/how-to-play", label: "How to Play" },
     { href: "/about", label: "About Us" },
     { href: "/faq", label: "FAQ" },
-    { href: "/todo", label: "Tasks" },
     { href: "/contact", label: "Contact" },
   ];
 
