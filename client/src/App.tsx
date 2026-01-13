@@ -21,6 +21,7 @@ import Contact from "./pages/Contact";
 import Terms from "./pages/legal/Terms";
 import Privacy from "./pages/legal/Privacy";
 import Disclaimer from "./pages/legal/Disclaimer";
+import CreditTopUp from "./components/CreditTopUp";
 
 
 
@@ -58,6 +59,7 @@ function App() {
           <TooltipProvider>
             <Toaster />
             <Router />
+            <CreditTopUp />
           </TooltipProvider>
         </BalanceProvider>
       </ThemeProvider>
