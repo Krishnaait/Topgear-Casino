@@ -68,7 +68,7 @@ export default function Slots() {
       <Navigation />
 
       {/* Hero Section with Image */}
-      <section className="relative h-80 overflow-hidden mb-8">
+      <section className="relative h-40 sm:h-60 md:h-80 overflow-hidden mb-4 sm:mb-6 md:mb-8">
         <img
           src="/images/slots-hero.png"
           alt="Slots Game"
@@ -76,13 +76,13 @@ export default function Slots() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background"></div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-white drop-shadow-lg">SLOTS</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg">SLOTS</h1>
         </div>
       </section>
 
-      <div className="flex-grow container py-8">
+      <div className="flex-grow container py-4 sm:py-6 md:py-8">
         {/* Game Header */}
-        <div className="flex justify-between items-center mb-8">
+        <div className="flex justify-between items-center mb-4 sm:mb-6 md:mb-8">
           <h1 className="text-3xl font-bold text-foreground hidden">Slots</h1>
           <div className="flex items-center gap-4">
             <div className="bg-card border border-border px-4 py-2 rounded-lg">
@@ -103,9 +103,9 @@ export default function Slots() {
         </div>
 
         {/* Game Area */}
-        <div className="bg-gradient-to-b from-card to-card/50 border border-border rounded-xl p-8 mb-8">
+        <div className="bg-gradient-to-b from-card to-card/50 border border-border rounded-xl p-4 sm:p-6 md:p-8 mb-4 sm:mb-6 md:mb-8">
           {/* Reels */}
-          <div className="flex gap-6 justify-center mb-8">
+          <div className="flex gap-6 justify-center mb-4 sm:mb-6 md:mb-8">
             {reels.map((reel, idx) => (
               <div
                 key={idx}
@@ -119,12 +119,12 @@ export default function Slots() {
           </div>
 
           {/* Message */}
-          <div className="bg-card border border-primary rounded-lg p-4 mb-8 text-center">
+          <div className="bg-card border border-primary rounded-lg p-4 mb-4 sm:mb-6 md:mb-8 text-center">
             <p className="text-lg font-semibold text-primary">{message}</p>
           </div>
 
           {/* Betting Section */}
-          <div className="bg-card/50 border border-border rounded-lg p-6 mb-8">
+          <div className="bg-card/50 border border-border rounded-lg p-6 mb-4 sm:mb-6 md:mb-8">
             <h3 className="text-lg font-semibold text-foreground mb-4">Bet Amount</h3>
             <div className="flex flex-col sm:flex-row gap-4 items-end">
               <div className="flex-grow">

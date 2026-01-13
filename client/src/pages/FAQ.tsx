@@ -281,9 +281,9 @@ export default function FAQ() {
       <Navigation />
 
       {/* Header */}
-      <section className="py-12 md:py-16 bg-card/30 border-b border-border">
-        <div className="container">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Frequently Asked Questions</h1>
+      <section className="py-6 sm:py-4 sm:py-6 md:py-8 lg:py-12 lg:py-16 bg-card/30 border-b border-border">
+        <div className="container px-3 sm:px-4 lg:px-6">
+          <h1 className="text-2xl sm:text-xl sm:text-lg sm:text-xl md:text-2xl lg:text-3xl lg:text-4xl lg:text-5xl font-bold text-foreground mb-4">Frequently Asked Questions</h1>
           <p className="text-lg text-muted-foreground max-w-2xl">
             Find comprehensive answers to all your questions about TOPGEAR Casino. If you cannot find what you're looking for, contact our support team.
           </p>
@@ -291,10 +291,10 @@ export default function FAQ() {
       </section>
 
       {/* FAQ Content */}
-      <section className="py-16 md:py-24">
+      <section className="py-8 sm:py-6 sm:py-4 sm:py-6 md:py-8 lg:py-12 lg:py-16 lg:py-24">
         <div className="container max-w-4xl">
           {faqCategories.map((category, categoryIdx) => (
-            <div key={categoryIdx} className="mb-12">
+            <div key={categoryIdx} className="mb-6 sm:mb-4 sm:mb-6 md:mb-8 md:mb-12">
               <h2 className="text-2xl font-bold text-foreground mb-6 pb-4 border-b border-border">
                 {category.category}
               </h2>
@@ -312,7 +312,7 @@ export default function FAQ() {
                     >
                       <button
                         onClick={() => setOpenIndex(openIndex === globalIndex ? null : globalIndex)}
-                        className="w-full flex items-center justify-between p-6 hover:bg-card/50 transition-colors"
+                        className="w-full flex items-center justify-between p-3 sm:p-2 sm:p-3 md:p-4 md:p-6 hover:bg-card/50 transition-colors"
                       >
                         <h3 className="text-lg font-semibold text-foreground text-left">{faq.q}</h3>
                         <ChevronDown
@@ -336,10 +336,10 @@ export default function FAQ() {
       </section>
 
       {/* Still Have Questions */}
-      <section className="py-16 md:py-24 bg-card/30">
+      <section className="py-8 sm:py-6 sm:py-4 sm:py-6 md:py-8 lg:py-12 lg:py-16 lg:py-24 bg-card/30">
         <div className="container text-center">
           <h2 className="text-3xl font-bold text-foreground mb-4">Still Have Questions?</h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground mb-4 sm:mb-6 md:mb-8 max-w-2xl mx-auto">
             Cannot find the answer you are looking for? Our support team is here to help. Reach out to us anytime.
           </p>
           <a

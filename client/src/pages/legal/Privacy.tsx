@@ -7,9 +7,9 @@ export default function Privacy() {
       <Navigation />
 
       {/* Header */}
-      <section className="py-12 md:py-16 bg-card/30 border-b border-border">
-        <div className="container">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Privacy Policy</h1>
+      <section className="py-6 sm:py-4 sm:py-6 md:py-8 lg:py-12 lg:py-16 bg-card/30 border-b border-border">
+        <div className="container px-3 sm:px-4 lg:px-6">
+          <h1 className="text-2xl sm:text-xl sm:text-lg sm:text-xl md:text-2xl lg:text-3xl lg:text-4xl lg:text-5xl font-bold text-foreground mb-4">Privacy Policy</h1>
           <p className="text-lg text-muted-foreground max-w-2xl">
             Your privacy is important to us. This policy explains how we collect, use, and protect your information.
           </p>
@@ -17,11 +17,11 @@ export default function Privacy() {
       </section>
 
       {/* Content */}
-      <section className="py-16 md:py-24">
+      <section className="py-8 sm:py-6 sm:py-4 sm:py-6 md:py-8 lg:py-12 lg:py-16 lg:py-24">
         <div className="container max-w-4xl">
           <div className="space-y-8 text-muted-foreground">
             {/* Last Updated */}
-            <div className="bg-card border border-border rounded-lg p-4">
+            <div className="bg-card border border-border rounded-lg p-2 sm:p-3 md:p-4">
               <p className="text-sm">
                 <strong>Last Updated:</strong> January 2026<br />
                 <strong>Effective Date:</strong> January 2026
@@ -49,7 +49,7 @@ export default function Privacy() {
                   <strong>No Registration Required:</strong> Since TOPGEAR Casino does not require registration or login, we collect minimal personal information. However, we may collect the following types of information:
                 </p>
 
-                <div className="bg-card border border-border rounded-lg p-4 space-y-4">
+                <div className="bg-card border border-border rounded-lg p-2 sm:p-3 md:p-4 space-y-4">
                   <div>
                     <h4 className="font-bold text-foreground mb-2">Device Information</h4>
                     <p className="text-sm">
@@ -176,7 +176,7 @@ export default function Privacy() {
                   Depending on your location, you may have certain rights regarding your personal information:
                 </p>
 
-                <div className="bg-card border border-border rounded-lg p-4 space-y-4">
+                <div className="bg-card border border-border rounded-lg p-2 sm:p-3 md:p-4 space-y-4">
                   <div>
                     <h4 className="font-bold text-foreground mb-2">Right to Access</h4>
                     <p className="text-sm">
@@ -293,7 +293,7 @@ export default function Privacy() {
                 <p>
                   If you have questions about this Privacy Policy or our privacy practices, please contact us:
                 </p>
-                <div className="bg-card border border-border rounded-lg p-4 space-y-2">
+                <div className="bg-card border border-border rounded-lg p-2 sm:p-3 md:p-4 space-y-2">
                   <p><strong>Email:</strong> support@topgear.com</p>
                   <p><strong>Company:</strong> TOPGEAR AUTOMOTIVE SOLUTIONS PRIVATE LIMITED</p>
                   <p><strong>CIN:</strong> U72900BR2019OPC042541</p>
@@ -303,7 +303,7 @@ export default function Privacy() {
             </div>
 
             {/* Final Notice */}
-            <div className="bg-card border-2 border-primary rounded-lg p-6">
+            <div className="bg-card border-2 border-primary rounded-lg p-3 sm:p-2 sm:p-3 md:p-4 md:p-6">
               <p className="text-sm">
                 <strong>Privacy Commitment:</strong> We are committed to protecting your privacy and maintaining your trust. If you believe we have not complied with this Privacy Policy, please contact us immediately. We will investigate and take appropriate action to resolve your concerns.
               </p>

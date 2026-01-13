@@ -8,9 +8,9 @@ export default function AboutUs() {
       <Navigation />
 
       {/* Header */}
-      <section className="py-12 md:py-16 bg-card/30 border-b border-border">
-        <div className="container">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">About TOPGEAR Casino</h1>
+      <section className="py-6 sm:py-4 sm:py-6 md:py-8 lg:py-12 lg:py-16 bg-card/30 border-b border-border">
+        <div className="container px-3 sm:px-4 lg:px-6">
+          <h1 className="text-2xl sm:text-xl sm:text-lg sm:text-xl md:text-2xl lg:text-3xl lg:text-4xl lg:text-5xl font-bold text-foreground mb-4">About TOPGEAR Casino</h1>
           <p className="text-lg text-muted-foreground max-w-2xl">
             Discover our mission, values, and commitment to providing the best free-to-play casino experience.
           </p>
@@ -18,9 +18,9 @@ export default function AboutUs() {
       </section>
 
       {/* Our Story */}
-      <section className="py-16 md:py-24">
+      <section className="py-8 sm:py-6 sm:py-4 sm:py-6 md:py-8 lg:py-12 lg:py-16 lg:py-24">
         <div className="container max-w-4xl">
-          <h2 className="text-3xl font-bold text-foreground mb-8">Our Story</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-4 sm:mb-6 md:mb-8">Our Story</h2>
 
           <div className="space-y-6 text-muted-foreground">
             <p>
@@ -43,9 +43,9 @@ export default function AboutUs() {
       </section>
 
       {/* Our Mission */}
-      <section className="py-16 md:py-24 bg-card/30">
+      <section className="py-8 sm:py-6 sm:py-4 sm:py-6 md:py-8 lg:py-12 lg:py-16 lg:py-24 bg-card/30">
         <div className="container max-w-4xl">
-          <h2 className="text-3xl font-bold text-foreground mb-8">Our Mission & Values</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-4 sm:mb-6 md:mb-8">Our Mission & Values</h2>
 
           <div className="space-y-8">
             {/* Mission */}
@@ -59,7 +59,7 @@ export default function AboutUs() {
             {/* Core Values */}
             <div>
               <h3 className="text-2xl font-bold text-foreground mb-6">Core Values</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-2 sm:p-3 md:p-4 md:gap-3 sm:p-2 sm:p-3 md:p-4 md:p-6">
                 {[
                   {
                     icon: <Heart className="w-8 h-8 text-primary" />,
@@ -92,7 +92,7 @@ export default function AboutUs() {
                     description: "We believe gaming should be accessible to everyone. No registration, no real money, just pure fun.",
                   },
                 ].map((value, idx) => (
-                  <div key={idx} className="bg-card border border-border rounded-lg p-6">
+                  <div key={idx} className="bg-card border border-border rounded-lg p-3 sm:p-2 sm:p-3 md:p-4 md:p-6">
                     <div className="mb-4">{value.icon}</div>
                     <h4 className="text-lg font-bold text-foreground mb-2">{value.title}</h4>
                     <p className="text-sm text-muted-foreground">{value.description}</p>
@@ -105,9 +105,9 @@ export default function AboutUs() {
       </section>
 
       {/* What Makes Us Different */}
-      <section className="py-16 md:py-24">
+      <section className="py-8 sm:py-6 sm:py-4 sm:py-6 md:py-8 lg:py-12 lg:py-16 lg:py-24">
         <div className="container max-w-4xl">
-          <h2 className="text-3xl font-bold text-foreground mb-8">What Makes Us Different</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-4 sm:mb-6 md:mb-8">What Makes Us Different</h2>
 
           <div className="space-y-6">
             {[
@@ -144,7 +144,7 @@ export default function AboutUs() {
                 description: "Have questions? Our dedicated support team is ready to help. We respond quickly and professionally to all inquiries.",
               },
             ].map((item, idx) => (
-              <div key={idx} className="bg-card border border-border rounded-lg p-6">
+              <div key={idx} className="bg-card border border-border rounded-lg p-3 sm:p-2 sm:p-3 md:p-4 md:p-6">
                 <h3 className="text-lg font-bold text-foreground mb-2">{item.title}</h3>
                 <p className="text-muted-foreground">{item.description}</p>
               </div>
@@ -154,15 +154,15 @@ export default function AboutUs() {
       </section>
 
       {/* Our Games */}
-      <section className="py-16 md:py-24 bg-card/30">
+      <section className="py-8 sm:py-6 sm:py-4 sm:py-6 md:py-8 lg:py-12 lg:py-16 lg:py-24 bg-card/30">
         <div className="container max-w-4xl">
-          <h2 className="text-3xl font-bold text-foreground mb-8">Our Game Portfolio</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-4 sm:mb-6 md:mb-8">Our Game Portfolio</h2>
 
-          <p className="text-muted-foreground mb-8">
+          <p className="text-muted-foreground mb-4 sm:mb-6 md:mb-8">
             We offer a carefully curated selection of casino games, each designed to provide maximum entertainment and engagement. Our games are developed with cutting-edge technology and tested rigorously for fairness and performance.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-2 sm:p-3 md:p-4 md:gap-3 sm:p-2 sm:p-3 md:p-4 md:p-6">
             {[
               {
                 emoji: "🎴",
@@ -195,7 +195,7 @@ export default function AboutUs() {
                 description: "We're constantly developing new games. Stay tuned for exciting additions to our portfolio.",
               },
             ].map((game, idx) => (
-              <div key={idx} className="bg-card border border-border rounded-lg p-6 text-center">
+              <div key={idx} className="bg-card border border-border rounded-lg p-3 sm:p-2 sm:p-3 md:p-4 md:p-6 text-center">
                 <div className="text-5xl mb-4">{game.emoji}</div>
                 <h3 className="text-lg font-bold text-foreground mb-2">{game.name}</h3>
                 <p className="text-sm text-muted-foreground">{game.description}</p>
@@ -206,9 +206,9 @@ export default function AboutUs() {
       </section>
 
       {/* Our Commitment */}
-      <section className="py-16 md:py-24">
+      <section className="py-8 sm:py-6 sm:py-4 sm:py-6 md:py-8 lg:py-12 lg:py-16 lg:py-24">
         <div className="container max-w-4xl">
-          <h2 className="text-3xl font-bold text-foreground mb-8">Our Commitment to You</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-4 sm:mb-6 md:mb-8">Our Commitment to You</h2>
 
           <div className="space-y-6">
             <div className="bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/20 rounded-xl p-8">
@@ -254,12 +254,12 @@ export default function AboutUs() {
       </section>
 
       {/* Company Info */}
-      <section className="py-16 md:py-24 bg-card/30">
+      <section className="py-8 sm:py-6 sm:py-4 sm:py-6 md:py-8 lg:py-12 lg:py-16 lg:py-24 bg-card/30">
         <div className="container max-w-4xl">
-          <h2 className="text-3xl font-bold text-foreground mb-8">Company Information</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-4 sm:mb-6 md:mb-8">Company Information</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-card border border-border rounded-lg p-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-2 sm:p-3 md:p-4 md:gap-3 sm:p-2 sm:p-3 md:p-4 md:p-6">
+            <div className="bg-card border border-border rounded-lg p-3 sm:p-2 sm:p-3 md:p-4 md:p-6">
               <h3 className="font-bold text-foreground mb-4">Legal Details</h3>
               <div className="space-y-3 text-sm text-muted-foreground">
                 <p>
@@ -277,7 +277,7 @@ export default function AboutUs() {
               </div>
             </div>
 
-            <div className="bg-card border border-border rounded-lg p-6">
+            <div className="bg-card border border-border rounded-lg p-3 sm:p-2 sm:p-3 md:p-4 md:p-6">
               <h3 className="font-bold text-foreground mb-4">Contact Information</h3>
               <div className="space-y-3 text-sm text-muted-foreground">
                 <p>
@@ -296,14 +296,14 @@ export default function AboutUs() {
             </div>
           </div>
 
-          <div className="mt-6 bg-card border border-border rounded-lg p-6">
+          <div className="mt-6 bg-card border border-border rounded-lg p-3 sm:p-2 sm:p-3 md:p-4 md:p-6">
             <h3 className="font-bold text-foreground mb-4">Head Office</h3>
             <p className="text-sm text-muted-foreground">
               Mazda No-11/16, 2 A Main Road, 5th Cross, Vignannagar, Malleshpalya, Bangalore, Karnataka, India, 560075
             </p>
           </div>
 
-          <div className="mt-6 bg-card border border-border rounded-lg p-6">
+          <div className="mt-6 bg-card border border-border rounded-lg p-3 sm:p-2 sm:p-3 md:p-4 md:p-6">
             <h3 className="font-bold text-foreground mb-4">Regional Office</h3>
             <p className="text-sm text-muted-foreground">
               409, Beside Union Bank of India, 80 Feet Double Road, AGB Layout, Hesaraghatta Main Road, Geleyara Balaga Layout, Jalahalli West, Bengaluru, Karnataka 560090, India
@@ -313,10 +313,10 @@ export default function AboutUs() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 md:py-24">
+      <section className="py-8 sm:py-6 sm:py-4 sm:py-6 md:py-8 lg:py-12 lg:py-16 lg:py-24">
         <div className="container text-center">
           <h2 className="text-3xl font-bold text-foreground mb-4">Join Our Community</h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground mb-4 sm:mb-6 md:mb-8 max-w-2xl mx-auto">
             Become part of thousands of players enjoying free casino gaming. No registration, no risk, just pure entertainment!
           </p>
           <a

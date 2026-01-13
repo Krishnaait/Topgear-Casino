@@ -9,9 +9,9 @@ export default function Todo() {
       <Navigation />
 
       {/* Header */}
-      <section className="py-12 md:py-16 bg-card/30 border-b border-border">
-        <div className="container">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Gaming Tasks</h1>
+      <section className="py-6 sm:py-4 sm:py-6 md:py-8 lg:py-12 lg:py-16 bg-card/30 border-b border-border">
+        <div className="container px-3 sm:px-4 lg:px-6">
+          <h1 className="text-2xl sm:text-xl sm:text-lg sm:text-xl md:text-2xl lg:text-3xl lg:text-4xl lg:text-5xl font-bold text-foreground mb-4">Gaming Tasks</h1>
           <p className="text-lg text-muted-foreground max-w-2xl">
             Track your gaming goals and achievements. Stay organized and motivated!
           </p>
@@ -19,9 +19,9 @@ export default function Todo() {
       </section>
 
       {/* Main Content */}
-      <section className="py-16 md:py-24">
-        <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <section className="py-8 sm:py-6 sm:py-4 sm:py-6 md:py-8 lg:py-12 lg:py-16 lg:py-24">
+        <div className="container px-3 sm:px-4 lg:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 sm:p-3 md:p-4 sm:gap-3 sm:gap-2 sm:p-3 md:p-4 md:gap-3 sm:p-2 sm:p-3 md:p-4 md:p-6 md:gap-8">
             {/* Main Todo Component */}
             <div className="lg:col-span-2">
               <TodoList
@@ -35,7 +35,7 @@ export default function Todo() {
             {/* Info Sidebar */}
             <div className="space-y-6">
               {/* Tips Card */}
-              <div className="bg-card border border-border rounded-lg p-6">
+              <div className="bg-card border border-border rounded-lg p-3 sm:p-2 sm:p-3 md:p-4 md:p-6">
                 <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
                   <Zap className="w-5 h-5 text-primary" />
                   Quick Tips
@@ -57,7 +57,7 @@ export default function Todo() {
               </div>
 
               {/* Features Card */}
-              <div className="bg-card border border-border rounded-lg p-6">
+              <div className="bg-card border border-border rounded-lg p-3 sm:p-2 sm:p-3 md:p-4 md:p-6">
                 <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
                   <CheckCircle2 className="w-5 h-5 text-primary" />
                   Features
@@ -91,7 +91,7 @@ export default function Todo() {
               </div>
 
               {/* Example Tasks Card */}
-              <div className="bg-card border border-border rounded-lg p-6">
+              <div className="bg-card border border-border rounded-lg p-3 sm:p-2 sm:p-3 md:p-4 md:p-6">
                 <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
                   <Share2 className="w-5 h-5 text-primary" />
                   Example Tasks
@@ -111,10 +111,10 @@ export default function Todo() {
       </section>
 
       {/* How to Use Section */}
-      <section className="py-16 md:py-24 bg-card/30">
+      <section className="py-8 sm:py-6 sm:py-4 sm:py-6 md:py-8 lg:py-12 lg:py-16 lg:py-24 bg-card/30">
         <div className="container max-w-4xl">
-          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">How to Use</h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <h2 className="text-3xl font-bold text-foreground mb-6 sm:mb-4 sm:mb-6 md:mb-8 md:mb-12 text-center">How to Use</h2>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-3 sm:gap-2 sm:p-3 md:p-4 md:gap-3 sm:p-2 sm:p-3 md:p-4 md:p-6">
             {[
               {
                 step: "1",
@@ -137,7 +137,7 @@ export default function Todo() {
                 description: "Delete tasks you no longer need and keep focused",
               },
             ].map((item, idx) => (
-              <div key={idx} className="bg-card border border-border rounded-lg p-6 text-center">
+              <div key={idx} className="bg-card border border-border rounded-lg p-3 sm:p-2 sm:p-3 md:p-4 md:p-6 text-center">
                 <div className="w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold mx-auto mb-4">
                   {item.step}
                 </div>
@@ -150,32 +150,32 @@ export default function Todo() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 md:py-24">
+      <section className="py-8 sm:py-6 sm:py-4 sm:py-6 md:py-8 lg:py-12 lg:py-16 lg:py-24">
         <div className="container max-w-3xl">
-          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">Why Use a Todo List?</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-6 sm:mb-4 sm:mb-6 md:mb-8 md:mb-12 text-center">Why Use a Todo List?</h2>
           <div className="space-y-6 text-muted-foreground">
-            <div className="bg-card border border-border rounded-lg p-6">
+            <div className="bg-card border border-border rounded-lg p-3 sm:p-2 sm:p-3 md:p-4 md:p-6">
               <h3 className="text-lg font-bold text-foreground mb-3">Stay Motivated</h3>
               <p>
                 Setting and tracking gaming goals keeps you engaged and motivated. Seeing your progress grow is rewarding and fun!
               </p>
             </div>
 
-            <div className="bg-card border border-border rounded-lg p-6">
+            <div className="bg-card border border-border rounded-lg p-3 sm:p-2 sm:p-3 md:p-4 md:p-6">
               <h3 className="text-lg font-bold text-foreground mb-3">Organize Your Gaming</h3>
               <p>
                 Keep track of which games you want to try, goals you want to achieve, and milestones you want to reach. Stay organized and focused.
               </p>
             </div>
 
-            <div className="bg-card border border-border rounded-lg p-6">
+            <div className="bg-card border border-border rounded-lg p-3 sm:p-2 sm:p-3 md:p-4 md:p-6">
               <h3 className="text-lg font-bold text-foreground mb-3">Measure Achievement</h3>
               <p>
                 Celebrate your accomplishments by checking off completed tasks. The progress bar shows how far you've come and keeps you on track.
               </p>
             </div>
 
-            <div className="bg-card border border-border rounded-lg p-6">
+            <div className="bg-card border border-border rounded-lg p-3 sm:p-2 sm:p-3 md:p-4 md:p-6">
               <h3 className="text-lg font-bold text-foreground mb-3">Persistent Storage</h3>
               <p>
                 Your tasks are automatically saved to your browser. They'll be there when you come back, so you never lose track of your goals.

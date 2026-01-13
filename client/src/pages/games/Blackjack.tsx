@@ -154,7 +154,7 @@ export default function Blackjack() {
       <Navigation />
 
       {/* Hero Section with Image */}
-      <section className="relative h-80 overflow-hidden mb-8">
+      <section className="relative h-40 sm:h-60 md:h-80 overflow-hidden mb-4 sm:mb-6 md:mb-8">
         <img
           src="/images/blackjack-hero.png"
           alt="Blackjack Game"
@@ -162,18 +162,18 @@ export default function Blackjack() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background"></div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-white drop-shadow-lg">BLACKJACK</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg">BLACKJACK</h1>
         </div>
       </section>
 
-      <div className="flex-grow container py-8">
+      <div className="flex-grow container py-4 sm:py-6 md:py-8">
         {/* Game Header */}
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-foreground hidden">Blackjack</h1>
-          <div className="flex items-center gap-4">
-            <div className="bg-card border border-border px-4 py-2 rounded-lg">
+        <div className="flex justify-between items-center mb-4 sm:mb-6 md:mb-8">
+          <h1 className="text-2xl sm:text-3xl font-bold text-foreground hidden">Blackjack</h1>
+          <div className="flex items-center gap-2 sm:gap-4">
+            <div className="bg-card border border-border px-3 sm:px-4 py-1 sm:py-2 rounded-lg">
               <p className="text-sm text-muted-foreground">Balance</p>
-              <p className="text-2xl font-bold text-primary">{balance}</p>
+              <p className="text-lg sm:text-xl sm:text-2xl font-bold text-primary">{balance}</p>
             </div>
             <button
               onClick={() => setSoundEnabled(!soundEnabled)}
@@ -189,15 +189,15 @@ export default function Blackjack() {
         </div>
 
         {/* Game Area */}
-        <div className="bg-gradient-to-b from-card to-card/50 border border-border rounded-xl p-8 mb-8">
+        <div className="bg-gradient-to-b from-card to-card/50 border border-border rounded-xl p-4 sm:p-6 md:p-8 mb-4 sm:mb-6 md:mb-8">
           {/* Dealer Section */}
           <div className="mb-12">
             <h2 className="text-lg font-semibold text-foreground mb-4">Dealer</h2>
-            <div className="flex gap-4 mb-2">
+            <div className="flex gap-2 sm:gap-4 mb-2">
               {dealerCards.map((card, idx) => (
                 <div
                   key={idx}
-                  className="w-24 h-32 bg-white rounded-lg border-2 border-primary flex items-center justify-center text-2xl font-bold text-primary shadow-lg animate-card-deal"
+                  className="w-20 sm:w-24 h-28 sm:h-32 bg-white rounded-lg border-2 border-primary flex items-center justify-center text-lg sm:text-xl sm:text-2xl font-bold text-primary shadow-lg animate-card-deal"
                   style={{ animationDelay: `${idx * 0.2}s` }}
                 >
                   {card.rank}
@@ -215,11 +215,11 @@ export default function Blackjack() {
           {/* Player Section */}
           <div>
             <h2 className="text-lg font-semibold text-foreground mb-4">Your Hand</h2>
-            <div className="flex gap-4">
+            <div className="flex gap-2 sm:gap-4">
               {playerCards.map((card, idx) => (
                 <div
                   key={idx}
-                  className="w-24 h-32 bg-white rounded-lg border-2 border-primary flex items-center justify-center text-2xl font-bold text-primary shadow-lg animate-card-deal"
+                  className="w-20 sm:w-24 h-28 sm:h-32 bg-white rounded-lg border-2 border-primary flex items-center justify-center text-lg sm:text-xl sm:text-2xl font-bold text-primary shadow-lg animate-card-deal"
                   style={{ animationDelay: `${idx * 0.2}s` }}
                 >
                   {card.rank}
@@ -237,9 +237,9 @@ export default function Blackjack() {
 
         {/* Betting Section */}
         {gameState === "betting" && (
-          <div className="bg-card border border-border rounded-xl p-6 mb-8">
+          <div className="bg-card border border-border rounded-xl p-6 mb-4 sm:mb-6 md:mb-8">
             <h3 className="text-lg font-semibold text-foreground mb-4">Place Your Bet</h3>
-            <div className="flex flex-col sm:flex-row gap-4 items-end">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 items-end">
               <div className="flex-grow">
                 <label className="text-sm text-muted-foreground mb-2 block">Bet Amount</label>
                 <input
@@ -247,7 +247,7 @@ export default function Blackjack() {
                   value={bet}
                   onChange={(e) => setBet(Math.max(1, parseInt(e.target.value) || 1))}
                   max={balance}
-                  className="w-full bg-background border border-border rounded-lg px-4 py-2 text-foreground"
+                  className="w-full bg-background border border-border rounded-lg px-3 sm:px-4 py-1 sm:py-2 text-foreground"
                 />
               </div>
               <Button
@@ -263,14 +263,14 @@ export default function Blackjack() {
 
         {/* Message */}
         {message && (
-          <div className="bg-card border border-primary rounded-lg p-4 mb-8 text-center">
+          <div className="bg-card border border-primary rounded-lg p-4 mb-4 sm:mb-6 md:mb-8 text-center">
             <p className="text-lg font-semibold text-primary">{message}</p>
           </div>
         )}
 
         {/* Action Buttons */}
         {gameState === "playing" && (
-          <div className="flex gap-4 justify-center mb-8">
+          <div className="flex gap-2 sm:gap-4 justify-center mb-4 sm:mb-6 md:mb-8">
             <Button
               onClick={hit}
               className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold"
@@ -287,7 +287,7 @@ export default function Blackjack() {
         )}
 
         {gameState === "finished" && (
-          <div className="flex gap-4 justify-center mb-8">
+          <div className="flex gap-2 sm:gap-4 justify-center mb-4 sm:mb-6 md:mb-8">
             <Button
               onClick={resetGame}
               className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"

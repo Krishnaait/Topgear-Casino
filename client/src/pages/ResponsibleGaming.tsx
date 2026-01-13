@@ -8,9 +8,9 @@ export default function ResponsibleGaming() {
       <Navigation />
 
       {/* Header */}
-      <section className="py-12 md:py-16 bg-card/30 border-b border-border">
-        <div className="container">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Responsible Gaming</h1>
+      <section className="py-6 sm:py-4 sm:py-6 md:py-8 lg:py-12 lg:py-16 bg-card/30 border-b border-border">
+        <div className="container px-3 sm:px-4 lg:px-6">
+          <h1 className="text-2xl sm:text-xl sm:text-lg sm:text-xl md:text-2xl lg:text-3xl lg:text-4xl lg:text-5xl font-bold text-foreground mb-4">Responsible Gaming</h1>
           <p className="text-lg text-muted-foreground max-w-2xl">
             TOPGEAR Casino is committed to promoting responsible gaming. Learn how to play safely and enjoy our platform responsibly.
           </p>
@@ -18,7 +18,7 @@ export default function ResponsibleGaming() {
       </section>
 
       {/* Content */}
-      <section className="py-16 md:py-24">
+      <section className="py-8 sm:py-6 sm:py-4 sm:py-6 md:py-8 lg:py-12 lg:py-16 lg:py-24">
         <div className="container max-w-4xl">
           <div className="space-y-8">
             {/* Introduction */}
@@ -35,7 +35,7 @@ export default function ResponsibleGaming() {
             {/* Key Principles */}
             <div>
               <h2 className="text-3xl font-bold text-foreground mb-6">Key Principles of Responsible Gaming</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-2 sm:p-3 md:p-4 md:gap-3 sm:p-2 sm:p-3 md:p-4 md:p-6">
                 {[
                   {
                     icon: <Heart className="w-8 h-8 text-primary" />,
@@ -58,7 +58,7 @@ export default function ResponsibleGaming() {
                     description: "Understand game rules, odds, and mechanics. Make informed decisions about your play.",
                   },
                 ].map((principle, idx) => (
-                  <div key={idx} className="bg-card border border-border rounded-lg p-6">
+                  <div key={idx} className="bg-card border border-border rounded-lg p-3 sm:p-2 sm:p-3 md:p-4 md:p-6">
                     <div className="mb-4">{principle.icon}</div>
                     <h3 className="text-lg font-bold text-foreground mb-2">{principle.title}</h3>
                     <p className="text-muted-foreground text-sm">{principle.description}</p>
@@ -76,7 +76,7 @@ export default function ResponsibleGaming() {
                   <p className="text-muted-foreground mb-4">
                     Set a specific amount of time you want to spend gaming and stick to it. Gaming should be one of many activities in your life, not the primary focus.
                   </p>
-                  <div className="bg-card border border-border rounded p-4">
+                  <div className="bg-card border border-border rounded p-2 sm:p-3 md:p-4">
                     <p className="text-sm text-muted-foreground">
                       <strong>Suggestion:</strong> Limit gaming sessions to 30-60 minutes at a time. Take a 15-minute break after each session. Avoid gaming late at night or when you should be sleeping.
                     </p>
@@ -88,7 +88,7 @@ export default function ResponsibleGaming() {
                   <p className="text-muted-foreground mb-4">
                     Even though coins are virtual, it's good practice to manage them responsibly. Don't feel pressured to use all available coins.
                   </p>
-                  <div className="bg-card border border-border rounded p-4">
+                  <div className="bg-card border border-border rounded p-2 sm:p-3 md:p-4">
                     <p className="text-sm text-muted-foreground">
                       <strong>Suggestion:</strong> Decide how many coins you're comfortable using per session. If you run out, take a break instead of immediately using the reset bonus. Save bonuses for when you want to play later.
                     </p>
@@ -100,7 +100,7 @@ export default function ResponsibleGaming() {
                   <p className="text-muted-foreground mb-4">
                     Avoid playing too frequently. Gaming should be an occasional activity, not a daily habit.
                   </p>
-                  <div className="bg-card border border-border rounded p-4">
+                  <div className="bg-card border border-border rounded p-2 sm:p-3 md:p-4">
                     <p className="text-sm text-muted-foreground">
                       <strong>Suggestion:</strong> Consider limiting gaming to specific days of the week. For example, play on weekends only, or 2-3 times per week. This helps maintain balance.
                     </p>
@@ -115,7 +115,7 @@ export default function ResponsibleGaming() {
               <p className="text-muted-foreground mb-6">
                 While TOPGEAR Casino is free and involves no real money, some behaviors may indicate unhealthy gaming habits. Be aware of these warning signs:
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:p-3 md:p-4">
                 {[
                   "Spending more time gaming than intended",
                   "Thinking about gaming when not playing",
@@ -130,12 +130,12 @@ export default function ResponsibleGaming() {
                   "Difficulty stopping or taking breaks",
                   "Gaming affecting your mood or mental health",
                 ].map((sign, idx) => (
-                  <div key={idx} className="bg-card border border-border rounded p-4">
+                  <div key={idx} className="bg-card border border-border rounded p-2 sm:p-3 md:p-4">
                     <p className="text-muted-foreground text-sm">• {sign}</p>
                   </div>
                 ))}
               </div>
-              <div className="mt-6 bg-destructive/10 border border-destructive rounded-lg p-4">
+              <div className="mt-6 bg-destructive/10 border border-destructive rounded-lg p-2 sm:p-3 md:p-4">
                 <p className="text-sm text-foreground">
                   <strong>If you notice any of these signs in yourself or someone else, it may be time to seek help or take a break from gaming.</strong>
                 </p>
@@ -180,7 +180,7 @@ export default function ResponsibleGaming() {
                     description: "If you feel gaming is becoming problematic, reach out to support organizations. There are resources available to help.",
                   },
                 ].map((tip, idx) => (
-                  <div key={idx} className="bg-card border border-border rounded-lg p-6">
+                  <div key={idx} className="bg-card border border-border rounded-lg p-3 sm:p-2 sm:p-3 md:p-4 md:p-6">
                     <h3 className="text-lg font-bold text-foreground mb-2">{tip.title}</h3>
                     <p className="text-muted-foreground">{tip.description}</p>
                   </div>
@@ -196,8 +196,8 @@ export default function ResponsibleGaming() {
               </p>
 
               <div className="space-y-6">
-                <div className="bg-card border border-border rounded-lg p-6">
-                  <div className="flex items-start gap-4">
+                <div className="bg-card border border-border rounded-lg p-3 sm:p-2 sm:p-3 md:p-4 md:p-6">
+                  <div className="flex items-start gap-2 sm:p-3 md:p-4">
                     <Phone className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                     <div>
                       <h3 className="text-lg font-bold text-foreground mb-2">Gamblers Anonymous</h3>
@@ -211,8 +211,8 @@ export default function ResponsibleGaming() {
                   </div>
                 </div>
 
-                <div className="bg-card border border-border rounded-lg p-6">
-                  <div className="flex items-start gap-4">
+                <div className="bg-card border border-border rounded-lg p-3 sm:p-2 sm:p-3 md:p-4 md:p-6">
+                  <div className="flex items-start gap-2 sm:p-3 md:p-4">
                     <Phone className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                     <div>
                       <h3 className="text-lg font-bold text-foreground mb-2">National Council on Problem Gambling (NCPG)</h3>
@@ -227,8 +227,8 @@ export default function ResponsibleGaming() {
                   </div>
                 </div>
 
-                <div className="bg-card border border-border rounded-lg p-6">
-                  <div className="flex items-start gap-4">
+                <div className="bg-card border border-border rounded-lg p-3 sm:p-2 sm:p-3 md:p-4 md:p-6">
+                  <div className="flex items-start gap-2 sm:p-3 md:p-4">
                     <Heart className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                     <div>
                       <h3 className="text-lg font-bold text-foreground mb-2">TOPGEAR Casino Support</h3>
@@ -278,7 +278,7 @@ export default function ResponsibleGaming() {
                     description: "Model healthy technology and gaming habits. Show your children how to use technology responsibly.",
                   },
                 ].map((item, idx) => (
-                  <div key={idx} className="bg-card border border-border rounded-lg p-6">
+                  <div key={idx} className="bg-card border border-border rounded-lg p-3 sm:p-2 sm:p-3 md:p-4 md:p-6">
                     <h3 className="text-lg font-bold text-foreground mb-2">{item.title}</h3>
                     <p className="text-muted-foreground">{item.description}</p>
                   </div>
@@ -305,7 +305,7 @@ export default function ResponsibleGaming() {
             </div>
 
             {/* Final Message */}
-            <div className="bg-card border-2 border-primary rounded-lg p-6">
+            <div className="bg-card border-2 border-primary rounded-lg p-3 sm:p-2 sm:p-3 md:p-4 md:p-6">
               <p className="text-foreground font-semibold mb-2">
                 Remember: Gaming should be fun and entertaining. If it ever stops being fun or starts causing problems, it's time to take a break.
               </p>

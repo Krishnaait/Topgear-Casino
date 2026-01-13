@@ -73,7 +73,7 @@ export default function SpinWheel() {
       <Navigation />
 
       {/* Hero Section with Image */}
-      <section className="relative h-80 overflow-hidden mb-8">
+      <section className="relative h-40 sm:h-60 md:h-80 overflow-hidden mb-4 sm:mb-6 md:mb-8">
         <img
           src="/images/spinwheel-hero.png"
           alt="Spin Wheel Game"
@@ -81,13 +81,13 @@ export default function SpinWheel() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background"></div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-white drop-shadow-lg">SPIN WHEEL</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg">SPIN WHEEL</h1>
         </div>
       </section>
 
-      <div className="flex-grow container py-8">
+      <div className="flex-grow container py-4 sm:py-6 md:py-8">
         {/* Game Header */}
-        <div className="flex justify-between items-center mb-8">
+        <div className="flex justify-between items-center mb-4 sm:mb-6 md:mb-8">
           <h1 className="text-3xl font-bold text-foreground hidden">Daily Spin Wheel</h1>
           <div className="flex items-center gap-4">
             <div className="bg-card border border-border px-4 py-2 rounded-lg">
@@ -108,9 +108,9 @@ export default function SpinWheel() {
         </div>
 
         {/* Game Area */}
-        <div className="bg-gradient-to-b from-card to-card/50 border border-border rounded-xl p-8 mb-8">
+        <div className="bg-gradient-to-b from-card to-card/50 border border-border rounded-xl p-4 sm:p-6 md:p-8 mb-4 sm:mb-6 md:mb-8">
           {/* Wheel */}
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center mb-4 sm:mb-6 md:mb-8">
             <div className="relative w-64 h-64">
               {/* Pointer */}
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-2 z-10">
@@ -160,7 +160,7 @@ export default function SpinWheel() {
           </div>
 
           {/* Message */}
-          <div className="bg-card border border-primary rounded-lg p-4 mb-8 text-center">
+          <div className="bg-card border border-primary rounded-lg p-4 mb-4 sm:mb-6 md:mb-8 text-center">
             <p className="text-lg font-semibold text-primary">{message}</p>
             {timeUntilNext && (
               <p className="text-sm text-muted-foreground mt-2">Next spin available in: {timeUntilNext}</p>

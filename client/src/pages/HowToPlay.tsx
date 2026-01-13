@@ -11,9 +11,9 @@ export default function HowToPlay() {
       <Navigation />
 
       {/* Header */}
-      <section className="py-12 md:py-16 bg-card/30 border-b border-border">
-        <div className="container">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">How to Play</h1>
+      <section className="py-6 sm:py-4 sm:py-6 md:py-8 lg:py-12 lg:py-16 bg-card/30 border-b border-border">
+        <div className="container px-3 sm:px-4 lg:px-6">
+          <h1 className="text-2xl sm:text-xl sm:text-lg sm:text-xl md:text-2xl lg:text-3xl lg:text-4xl lg:text-5xl font-bold text-foreground mb-4">How to Play</h1>
           <p className="text-lg text-muted-foreground max-w-2xl">
             Master every game at TOPGEAR Casino with our comprehensive guides. Learn strategies, understand odds, and become an expert player.
           </p>
@@ -21,11 +21,11 @@ export default function HowToPlay() {
       </section>
 
       {/* Quick Start */}
-      <section className="py-16 md:py-24">
+      <section className="py-8 sm:py-6 sm:py-4 sm:py-6 md:py-8 lg:py-12 lg:py-16 lg:py-24">
         <div className="container max-w-4xl">
-          <h2 className="text-3xl font-bold text-foreground mb-8">Quick Start Guide</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-4 sm:mb-6 md:mb-8">Quick Start Guide</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-2 sm:p-3 md:p-4 mb-6 sm:mb-4 sm:mb-6 md:mb-8 md:mb-12">
             {[
               { num: "1", title: "Visit Site", desc: "No signup needed" },
               { num: "2", title: "Get Coins", desc: "Start with 1,000" },
@@ -33,7 +33,7 @@ export default function HowToPlay() {
               { num: "4", title: "Place Bet", desc: "Select coin amount" },
               { num: "5", title: "Play & Win", desc: "Enjoy the game" },
             ].map((step, idx) => (
-              <div key={idx} className="bg-card border border-border rounded-lg p-4 text-center">
+              <div key={idx} className="bg-card border border-border rounded-lg p-2 sm:p-3 md:p-4 text-center">
                 <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-3">
                   <span className="font-bold text-primary-foreground">{step.num}</span>
                 </div>
@@ -44,9 +44,9 @@ export default function HowToPlay() {
           </div>
 
           {/* Coin System */}
-          <div className="bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/20 rounded-xl p-8 mb-12">
+          <div className="bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/20 rounded-xl p-8 mb-6 sm:mb-4 sm:mb-6 md:mb-8 md:mb-12">
             <h3 className="text-2xl font-bold text-foreground mb-6">Understanding the Coin System</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-2 sm:p-3 md:p-4 md:gap-3 sm:p-2 sm:p-3 md:p-4 md:p-6">
               <div>
                 <h4 className="font-bold text-primary mb-2">Starting Balance</h4>
                 <p className="text-muted-foreground text-sm mb-3">
@@ -82,18 +82,18 @@ export default function HowToPlay() {
       </section>
 
       {/* Detailed Game Guides */}
-      <section className="py-16 md:py-24 bg-card/30">
+      <section className="py-8 sm:py-6 sm:py-4 sm:py-6 md:py-8 lg:py-12 lg:py-16 lg:py-24 bg-card/30">
         <div className="container max-w-4xl">
-          <h2 className="text-3xl font-bold text-foreground mb-12">Detailed Game Guides</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-6 sm:mb-4 sm:mb-6 md:mb-8 md:mb-12">Detailed Game Guides</h2>
 
           <div className="space-y-4">
             {/* Blackjack */}
             <div className="bg-card border border-border rounded-xl overflow-hidden">
               <button
                 onClick={() => setExpandedGame(expandedGame === "blackjack" ? null : "blackjack")}
-                className="w-full flex items-center justify-between p-6 hover:bg-card/50 transition-colors"
+                className="w-full flex items-center justify-between p-3 sm:p-2 sm:p-3 md:p-4 md:p-6 hover:bg-card/50 transition-colors"
               >
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2 sm:p-3 md:p-4">
                   <span className="text-3xl">🎴</span>
                   <div className="text-left">
                     <h3 className="text-xl font-bold text-foreground">Blackjack</h3>
@@ -158,9 +158,9 @@ export default function HowToPlay() {
             <div className="bg-card border border-border rounded-xl overflow-hidden">
               <button
                 onClick={() => setExpandedGame(expandedGame === "slots" ? null : "slots")}
-                className="w-full flex items-center justify-between p-6 hover:bg-card/50 transition-colors"
+                className="w-full flex items-center justify-between p-3 sm:p-2 sm:p-3 md:p-4 md:p-6 hover:bg-card/50 transition-colors"
               >
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2 sm:p-3 md:p-4">
                   <span className="text-3xl">🎰</span>
                   <div className="text-left">
                     <h3 className="text-xl font-bold text-foreground">Video Slots</h3>
@@ -222,9 +222,9 @@ export default function HowToPlay() {
             <div className="bg-card border border-border rounded-xl overflow-hidden">
               <button
                 onClick={() => setExpandedGame(expandedGame === "roulette" ? null : "roulette")}
-                className="w-full flex items-center justify-between p-6 hover:bg-card/50 transition-colors"
+                className="w-full flex items-center justify-between p-3 sm:p-2 sm:p-3 md:p-4 md:p-6 hover:bg-card/50 transition-colors"
               >
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2 sm:p-3 md:p-4">
                   <span className="text-3xl">🎡</span>
                   <div className="text-left">
                     <h3 className="text-xl font-bold text-foreground">Roulette</h3>
@@ -285,9 +285,9 @@ export default function HowToPlay() {
             <div className="bg-card border border-border rounded-xl overflow-hidden">
               <button
                 onClick={() => setExpandedGame(expandedGame === "spin-wheel" ? null : "spin-wheel")}
-                className="w-full flex items-center justify-between p-6 hover:bg-card/50 transition-colors"
+                className="w-full flex items-center justify-between p-3 sm:p-2 sm:p-3 md:p-4 md:p-6 hover:bg-card/50 transition-colors"
               >
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2 sm:p-3 md:p-4">
                   <span className="text-3xl">🌟</span>
                   <div className="text-left">
                     <h3 className="text-xl font-bold text-foreground">Spin Wheel</h3>
@@ -351,9 +351,9 @@ export default function HowToPlay() {
             <div className="bg-card border border-border rounded-xl overflow-hidden">
               <button
                 onClick={() => setExpandedGame(expandedGame === "keno" ? null : "keno")}
-                className="w-full flex items-center justify-between p-6 hover:bg-card/50 transition-colors"
+                className="w-full flex items-center justify-between p-3 sm:p-2 sm:p-3 md:p-4 md:p-6 hover:bg-card/50 transition-colors"
               >
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2 sm:p-3 md:p-4">
                   <span className="text-3xl">🎲</span>
                   <div className="text-left">
                     <h3 className="text-xl font-bold text-foreground">Keno</h3>
@@ -414,11 +414,11 @@ export default function HowToPlay() {
       </section>
 
       {/* General Tips */}
-      <section className="py-16 md:py-24">
+      <section className="py-8 sm:py-6 sm:py-4 sm:py-6 md:py-8 lg:py-12 lg:py-16 lg:py-24">
         <div className="container max-w-4xl">
-          <h2 className="text-3xl font-bold text-foreground mb-8">General Gaming Tips</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-4 sm:mb-6 md:mb-8">General Gaming Tips</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-2 sm:p-3 md:p-4 md:gap-3 sm:p-2 sm:p-3 md:p-4 md:p-6">
             {[
               {
                 title: "Understand the Odds",
@@ -445,7 +445,7 @@ export default function HowToPlay() {
                 description: "Claim your daily bonuses and use them strategically to extend your playtime.",
               },
             ].map((tip, idx) => (
-              <div key={idx} className="bg-card border border-border rounded-lg p-6">
+              <div key={idx} className="bg-card border border-border rounded-lg p-3 sm:p-2 sm:p-3 md:p-4 md:p-6">
                 <h3 className="font-bold text-foreground mb-2">{tip.title}</h3>
                 <p className="text-muted-foreground text-sm">{tip.description}</p>
               </div>

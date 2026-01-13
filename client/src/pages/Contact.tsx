@@ -33,9 +33,9 @@ export default function Contact() {
       <Navigation />
 
       {/* Header */}
-      <section className="py-12 md:py-16 bg-card/30 border-b border-border">
-        <div className="container">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Contact Us</h1>
+      <section className="py-6 sm:py-4 sm:py-6 md:py-8 lg:py-12 lg:py-16 bg-card/30 border-b border-border">
+        <div className="container px-3 sm:px-4 lg:px-6">
+          <h1 className="text-2xl sm:text-xl sm:text-lg sm:text-xl md:text-2xl lg:text-3xl lg:text-4xl lg:text-5xl font-bold text-foreground mb-4">Contact Us</h1>
           <p className="text-lg text-muted-foreground max-w-2xl">
             Have a question or feedback? We would love to hear from you!
           </p>
@@ -43,16 +43,16 @@ export default function Contact() {
       </section>
 
       {/* Contact Content */}
-      <section className="py-16 md:py-24">
-        <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <section className="py-8 sm:py-6 sm:py-4 sm:py-6 md:py-8 lg:py-12 lg:py-16 lg:py-24">
+        <div className="container px-3 sm:px-4 lg:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-2 sm:p-3 md:p-4 md:gap-3 sm:p-2 sm:p-3 md:p-4 md:p-6 sm:gap-2 sm:p-3 md:p-4 sm:gap-3 sm:gap-2 sm:p-3 md:p-4 md:gap-3 sm:p-2 sm:p-3 md:p-4 md:p-6 md:gap-8 md:gap-12">
             {/* Contact Info */}
             <div>
-              <h2 className="text-2xl font-bold text-foreground mb-8">Get in Touch</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-4 sm:mb-6 md:mb-8">Get in Touch</h2>
 
               <div className="space-y-6">
                 {/* Email */}
-                <div className="flex gap-4">
+                <div className="flex gap-2 sm:p-3 md:p-4">
                   <div className="flex-shrink-0">
                     <Mail className="w-6 h-6 text-primary mt-1" />
                   </div>
@@ -64,7 +64,7 @@ export default function Contact() {
                 </div>
 
                 {/* Phone */}
-                <div className="flex gap-4">
+                <div className="flex gap-2 sm:p-3 md:p-4">
                   <div className="flex-shrink-0">
                     <Phone className="w-6 h-6 text-primary mt-1" />
                   </div>
@@ -76,7 +76,7 @@ export default function Contact() {
                 </div>
 
                 {/* Address */}
-                <div className="flex gap-4">
+                <div className="flex gap-2 sm:p-3 md:p-4">
                   <div className="flex-shrink-0">
                     <MapPin className="w-6 h-6 text-primary mt-1" />
                   </div>
@@ -89,7 +89,7 @@ export default function Contact() {
                 </div>
 
                 {/* Regional Office */}
-                <div className="flex gap-4">
+                <div className="flex gap-2 sm:p-3 md:p-4">
                   <div className="flex-shrink-0">
                     <MapPin className="w-6 h-6 text-primary mt-1" />
                   </div>
@@ -103,7 +103,7 @@ export default function Contact() {
               </div>
 
               {/* Company Info */}
-              <div className="mt-12 bg-card border border-border rounded-lg p-6">
+              <div className="mt-12 bg-card border border-border rounded-lg p-3 sm:p-2 sm:p-3 md:p-4 md:p-6">
                 <h3 className="font-semibold text-foreground mb-4">Company Information</h3>
                 <div className="space-y-2 text-sm text-muted-foreground">
                   <p><strong>Company:</strong> TOPGEAR AUTOMOTIVE SOLUTIONS PRIVATE LIMITED</p>
@@ -116,7 +116,7 @@ export default function Contact() {
 
             {/* Contact Form */}
             <div>
-              <h2 className="text-2xl font-bold text-foreground mb-8">Send us a Message</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-4 sm:mb-6 md:mb-8">Send us a Message</h2>
 
               {submitted ? (
                 <div className="bg-card border border-primary rounded-lg p-8 text-center">
