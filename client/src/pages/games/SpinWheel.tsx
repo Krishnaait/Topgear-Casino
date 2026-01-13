@@ -117,10 +117,10 @@ export default function SpinWheel() {
               {/* Wheel */}
               <svg
                 viewBox="0 0 200 200"
-                className="w-full h-full"
+                className={`w-full h-full ${spinning ? "animate-spin-fast" : ""}`}
                 style={{
                   transform: `rotate(${rotation}deg)`,
-                  transition: spinning ? "transform 3s ease-out" : "none",
+                  transition: spinning ? "none" : "transform 0.5s ease-out",
                 }}
               >
                 {rewards.map((reward, idx) => {

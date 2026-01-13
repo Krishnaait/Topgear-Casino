@@ -98,9 +98,11 @@ export default function Roulette() {
         <div className="bg-gradient-to-b from-card to-card/50 border border-border rounded-xl p-8 mb-8">
           {/* Roulette Wheel Display */}
           <div className="flex justify-center mb-8">
-            <div className="relative w-32 h-32 rounded-full border-4 border-primary bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+            <div className={`relative w-32 h-32 rounded-full border-4 border-primary bg-gradient-to-br from-primary to-secondary flex items-center justify-center ${
+              spinning ? "animate-spin-wheel" : ""
+            }`}>
               {result !== null && (
-                <div className="text-4xl font-bold text-primary-foreground">{result}</div>
+                <div className="text-4xl font-bold text-primary-foreground animate-pulse-bounce">{result}</div>
               )}
               {result === null && (
                 <div className="text-4xl font-bold text-primary-foreground">?</div>
@@ -198,6 +200,18 @@ export default function Roulette() {
           to { opacity: 1; }
         }
         .animate-fade-in { animation: fade-in 1s ease-out; }
+        
+        @keyframes spin-wheel {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+        .animate-spin-wheel { animation: spin-wheel 0.05s linear infinite; }
+        
+        @keyframes pulse-bounce {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.05); }
+        }
+        .animate-pulse-bounce { animation: pulse-bounce 0.6s ease-in-out; }
       `}</style>
     </div>
   );

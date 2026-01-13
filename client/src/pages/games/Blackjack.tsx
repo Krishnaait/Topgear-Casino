@@ -188,7 +188,8 @@ export default function Blackjack() {
               {dealerCards.map((card, idx) => (
                 <div
                   key={idx}
-                  className="w-24 h-32 bg-white rounded-lg border-2 border-primary flex items-center justify-center text-2xl font-bold text-primary shadow-lg"
+                  className="w-24 h-32 bg-white rounded-lg border-2 border-primary flex items-center justify-center text-2xl font-bold text-primary shadow-lg animate-card-deal"
+                  style={{ animationDelay: `${idx * 0.2}s` }}
                 >
                   {card.rank}
                   {card.suit}
@@ -205,11 +206,12 @@ export default function Blackjack() {
           {/* Player Section */}
           <div>
             <h2 className="text-lg font-semibold text-foreground mb-4">Your Hand</h2>
-            <div className="flex gap-4 mb-2">
+            <div className="flex gap-4">
               {playerCards.map((card, idx) => (
                 <div
                   key={idx}
-                  className="w-24 h-32 bg-white rounded-lg border-2 border-secondary flex items-center justify-center text-2xl font-bold text-secondary shadow-lg"
+                  className="w-24 h-32 bg-white rounded-lg border-2 border-primary flex items-center justify-center text-2xl font-bold text-primary shadow-lg animate-card-deal"
+                  style={{ animationDelay: `${idx * 0.2}s` }}
                 >
                   {card.rank}
                   {card.suit}
@@ -295,6 +297,25 @@ export default function Blackjack() {
           to { opacity: 1; }
         }
         .animate-fade-in { animation: fade-in 1s ease-out; }
+        
+        @keyframes card-flip {
+          0% { transform: rotateY(90deg); opacity: 0; }
+          50% { transform: rotateY(45deg); }
+          100% { transform: rotateY(0deg); opacity: 1; }
+        }
+        .animate-card-flip { animation: card-flip 0.6s ease-out; }
+        
+        @keyframes card-deal {
+          0% { transform: translateX(-100px) translateY(-100px) scale(0.8); opacity: 0; }
+          100% { transform: translateX(0) translateY(0) scale(1); opacity: 1; }
+        }
+        .animate-card-deal { animation: card-deal 0.5s ease-out; }
+        
+        @keyframes pulse-glow {
+          0%, 100% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
+          50% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.6); }
+        }
+        .animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
       `}</style>
     </div>
   );
