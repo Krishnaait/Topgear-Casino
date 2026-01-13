@@ -2,9 +2,11 @@ import { Link } from "wouter";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { useBalance } from "@/contexts/BalanceContext";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const { balance } = useBalance();
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -39,7 +41,7 @@ export default function Navigation() {
               <span className="text-2xl">💰</span>
               <div className="flex flex-col">
                 <span className="text-xs text-muted-foreground">Balance</span>
-                <span className="text-lg font-bold text-primary">1,000</span>
+                <span className="text-lg font-bold text-primary">{balance.toLocaleString()}</span>
               </div>
             </div>
 

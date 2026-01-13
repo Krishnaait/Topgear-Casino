@@ -4,6 +4,7 @@ import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { BalanceProvider } from "./contexts/BalanceContext";
 import { useScrollToTop } from "./hooks/useScrollToTop";
 import Home from "./pages/Home";
 import Games from "./pages/Games";
@@ -53,10 +54,12 @@ function App() {
   return (
     <ErrorBoundary>
       <ThemeProvider defaultTheme="dark">
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-        </TooltipProvider>
+        <BalanceProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Router />
+          </TooltipProvider>
+        </BalanceProvider>
       </ThemeProvider>
     </ErrorBoundary>
   );

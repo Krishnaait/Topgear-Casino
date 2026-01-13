@@ -3,9 +3,10 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Volume2, VolumeX } from "lucide-react";
+import { useBalance } from "@/contexts/BalanceContext";
 
 export default function Keno() {
-  const [balance, setBalance] = useState(1000);
+  const { balance, setBalance } = useBalance();
   const [bet, setBet] = useState(10);
   const [selectedNumbers, setSelectedNumbers] = useState<number[]>([]);
   const [drawing, setDrawing] = useState(false);
@@ -83,7 +84,7 @@ export default function Keno() {
     if (matches === 0) {
       setMessage("No matches. Try again!");
     } else {
-      setBalance((prev) => prev + winAmount);
+      setBalance(balance - bet + winAmount);
       setMessage(`🎉 ${matches} matches! You won ${winAmount} coins!`);
     }
   };

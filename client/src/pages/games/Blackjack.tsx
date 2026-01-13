@@ -3,6 +3,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Volume2, VolumeX } from "lucide-react";
+import { useBalance } from "@/contexts/BalanceContext";
 
 interface Card {
   suit: string;
@@ -11,7 +12,7 @@ interface Card {
 }
 
 export default function Blackjack() {
-  const [balance, setBalance] = useState(1000);
+  const { balance, setBalance } = useBalance();
   const [bet, setBet] = useState(10);
   const [gameState, setGameState] = useState<"betting" | "playing" | "finished">("betting");
   const [playerCards, setPlayerCards] = useState<Card[]>([]);
@@ -75,6 +76,7 @@ export default function Blackjack() {
     setDealerCards([dealer[0]]);
     setGameState("playing");
     setMessage("Your turn!");
+    setBalance(balance - bet);
   };
 
   const hit = () => {
@@ -124,7 +126,7 @@ export default function Blackjack() {
 
     setDealerCards(finalDealerCards);
     setMessage(result);
-    setBalance(balance - bet + winAmount);
+    setBalance(balance + winAmount);
     setGameState("finished");
   };
 

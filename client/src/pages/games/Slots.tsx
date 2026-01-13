@@ -3,9 +3,10 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Volume2, VolumeX } from "lucide-react";
+import { useBalance } from "@/contexts/BalanceContext";
 
 export default function Slots() {
-  const [balance, setBalance] = useState(1000);
+  const { balance, setBalance } = useBalance();
   const [bet, setBet] = useState(10);
   const [spinning, setSpinning] = useState(false);
   const [reels, setReels] = useState(["🍎", "🍎", "🍎"]);
@@ -34,7 +35,7 @@ export default function Slots() {
       ]);
       spinCount++;
 
-      if (spinCount > 20) {
+       if (spinCount > 20) {
         clearInterval(spinInterval);
         const finalReels = [
           symbols[Math.floor(Math.random() * symbols.length)],
@@ -42,21 +43,17 @@ export default function Slots() {
           symbols[Math.floor(Math.random() * symbols.length)],
         ];
         setReels(finalReels);
-        checkWin(finalReels);
+        checkWin(finalReels, balance - bet);
         setSpinning(false);
       }
     }, 100);
   };
 
-  const checkWin = (finalReels: string[]) => {
-    if (finalReels[0] === finalReels[1] && finalReels[1] === finalReels[2]) {
+  const checkWin = (reels: string[], currentBalance: number) => {
+    if (reels[0] === reels[1] && reels[1] === reels[2]) {
       const winAmount = bet * 10;
-      setBalance((prev) => prev + winAmount);
-      setMessage(`🎉 You won ${winAmount} coins! All three match!`);
-    } else if (finalReels[0] === finalReels[1] || finalReels[1] === finalReels[2]) {
-      const winAmount = bet * 3;
-      setBalance((prev) => prev + winAmount);
-      setMessage(`✨ You won ${winAmount} coins! Two symbols match!`);
+      setBalance(currentBalance + winAmount);
+      setMessage(`🎉 You won ${winAmount} coins!`);
     } else {
       setMessage("Try again!");
     }

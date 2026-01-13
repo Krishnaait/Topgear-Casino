@@ -3,9 +3,10 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Volume2, VolumeX } from "lucide-react";
+import { useBalance } from "@/contexts/BalanceContext";
 
 export default function SpinWheel() {
-  const [balance, setBalance] = useState(1000);
+  const { balance, setBalance } = useBalance();
   const [spinning, setSpinning] = useState(false);
   const [rotation, setRotation] = useState(0);
   const [message, setMessage] = useState("Spin the wheel daily for bonus coins!");
@@ -54,7 +55,7 @@ export default function SpinWheel() {
     setRotation(randomRotation);
 
     setTimeout(() => {
-      setBalance((prev) => prev + randomReward);
+      setBalance(balance + randomReward);
       setMessage(`🎉 You won ${randomReward} coins!`);
       setLastSpinTime(Date.now());
       localStorage.setItem("lastSpinTime", Date.now().toString());

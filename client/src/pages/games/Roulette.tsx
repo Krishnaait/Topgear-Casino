@@ -3,9 +3,10 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Volume2, VolumeX } from "lucide-react";
+import { useBalance } from "@/contexts/BalanceContext";
 
 export default function Roulette() {
-  const [balance, setBalance] = useState(1000);
+  const { balance, setBalance } = useBalance();
   const [bet, setBet] = useState(10);
   const [selectedNumber, setSelectedNumber] = useState<number | null>(null);
   const [spinning, setSpinning] = useState(false);
@@ -47,7 +48,7 @@ export default function Roulette() {
   const checkWin = (finalResult: number) => {
     if (finalResult === selectedNumber) {
       const winAmount = bet * 36;
-      setBalance((prev) => prev + winAmount);
+      setBalance(balance - bet + winAmount);
       setMessage(`🎉 You won ${winAmount} coins! The ball landed on ${finalResult}!`);
     } else {
       setMessage(`The ball landed on ${finalResult}. Try again!`);
