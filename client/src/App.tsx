@@ -4,6 +4,7 @@ import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { useScrollToTop } from "./hooks/useScrollToTop";
 import Home from "./pages/Home";
 import Games from "./pages/Games";
 import Blackjack from "./pages/games/Blackjack";
@@ -23,6 +24,7 @@ import Todo from "./pages/Todo";
 
 
 function Router() {
+  useScrollToTop();
   return (
     <Switch>
       <Route path={"/"} component={Home} />
