@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <h3 className="text-lg font-bold gradient-text mb-4">TOPGEAR Casino</h3>
+            <img src="/images/topgear-logo.png" alt="TOPGEAR Casino" className="h-20 w-auto mb-4" />
             <p className="text-sm text-muted-foreground">
               Free-to-play social casino for entertainment. No real money, just fun!
             </p>
