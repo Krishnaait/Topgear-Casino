@@ -58,16 +58,6 @@ export default function HowToPlay() {
               </div>
 
               <div>
-                <h4 className="font-bold text-primary mb-2">Daily Bonus</h4>
-                <p className="text-muted-foreground text-sm mb-3">
-                  Spin the Daily Spin Wheel every 24 hours to claim <strong>200 free coins</strong>. It's your daily reward!
-                </p>
-                <div className="bg-card border border-border rounded p-3">
-                  <p className="text-sm font-mono text-primary">🎁 200 coins/day</p>
-                </div>
-              </div>
-
-              <div>
                 <h4 className="font-bold text-primary mb-2">Reset Bonus</h4>
                 <p className="text-muted-foreground text-sm mb-3">
                   Run out of coins? Get <strong>500 bonus coins</strong> to continue playing and enjoying the games.

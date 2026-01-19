@@ -1,30 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useBalance } from "@/contexts/BalanceContext";
-import { Gift, Plus } from "lucide-react";
+import { Plus } from "lucide-react";
 import { toast } from "sonner";
 
 export default function CreditTopUp() {
-  const { balance, topUpCredits, claimDailyBonus, canClaimBonus, getTimeUntilNextBonus } = useBalance();
+  const { balance, topUpCredits } = useBalance();
   const [showTopUpModal, setShowTopUpModal] = useState(false);
-  const [timeUntilBonus, setTimeUntilBonus] = useState(getTimeUntilNextBonus());
-
-  // Update countdown timer
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTimeUntilBonus(getTimeUntilNextBonus());
-    }, 60000); // Update every minute
-
-    return () => clearInterval(interval);
-  }, [getTimeUntilNextBonus]);
-
-  const handleDailyBonus = () => {
-    if (claimDailyBonus()) {
-      toast.success("🎉 Claimed 500 bonus credits!");
-      setTimeUntilBonus(getTimeUntilNextBonus());
-    } else {
-      toast.error(`Daily bonus already claimed. Available in ${timeUntilBonus}`);
-    }
-  };
 
   const handleTopUp = (amount: number) => {
     topUpCredits(amount);
@@ -47,21 +28,7 @@ export default function CreditTopUp() {
           <span className="sm:hidden">Credits</span>
         </button>
 
-        {/* Daily Bonus Button */}
-        <button
-          onClick={handleDailyBonus}
-          disabled={!canClaimBonus()}
-          className={`flex items-center gap-2 px-3 sm:px-4 py-2 sm:py-3 rounded-lg font-semibold text-sm sm:text-base transition-all whitespace-nowrap ${
-            canClaimBonus()
-              ? "bg-gradient-to-r from-primary to-primary/80 text-primary-foreground hover:shadow-lg hover:shadow-primary/50 cursor-pointer"
-              : "bg-muted text-muted-foreground cursor-not-allowed opacity-60"
-          }`}
-          title={canClaimBonus() ? "Claim daily bonus" : `Available in ${timeUntilBonus}`}
-        >
-          <Gift className="w-4 sm:w-5 h-4 sm:h-5 flex-shrink-0" />
-          <span className="hidden sm:inline">Daily Bonus</span>
-          <span className="sm:hidden">Bonus</span>
-        </button>
+
       </div>
 
       {/* Top-up Modal */}

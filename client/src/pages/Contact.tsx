@@ -1,7 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { useState } from "react";
 
 export default function Contact() {
@@ -60,18 +60,6 @@ export default function Contact() {
                     <h3 className="font-semibold text-foreground mb-1">Email</h3>
                     <p className="text-muted-foreground">support@topgear.com</p>
                     <p className="text-sm text-muted-foreground mt-1">We typically respond within 24 hours</p>
-                  </div>
-                </div>
-
-                {/* Phone */}
-                <div className="flex gap-2 sm:p-3 md:p-4">
-                  <div className="flex-shrink-0">
-                    <Phone className="w-6 h-6 text-primary mt-1" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground mb-1">Phone</h3>
-                    <p className="text-muted-foreground">+91 (080) XXXX-XXXX</p>
-                    <p className="text-sm text-muted-foreground mt-1">Monday - Friday, 9 AM - 6 PM IST</p>
                   </div>
                 </div>
 

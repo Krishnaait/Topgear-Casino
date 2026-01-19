@@ -285,10 +285,6 @@ export default function AboutUs() {
                   support@topgear.com
                 </p>
                 <p>
-                  <strong>Phone:</strong><br />
-                  +91 (080) XXXX-XXXX
-                </p>
-                <p>
                   <strong>Website:</strong><br />
                   www.topgear.com
                 </p>

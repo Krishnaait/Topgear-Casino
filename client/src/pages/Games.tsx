@@ -110,12 +110,6 @@ export default function Games() {
                   </p>
                 </div>
                 <div className="bg-card border border-border rounded-lg p-3 sm:p-2 sm:p-3 md:p-4">
-                  <h3 className="font-semibold text-foreground mb-2 text-sm sm:text-base">Daily Bonus</h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground">
-                    Claim 200 free coins every 24 hours to keep playing.
-                  </p>
-                </div>
-                <div className="bg-card border border-border rounded-lg p-3 sm:p-2 sm:p-3 md:p-4">
                   <h3 className="font-semibold text-foreground mb-2 text-sm sm:text-base">Reset Option</h3>
                   <p className="text-xs sm:text-sm text-muted-foreground">
                     When coins run out, get 500 bonus coins to continue playing.

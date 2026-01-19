@@ -59,11 +59,6 @@ export default function Home() {
       title: "Achievements",
       description: "Earn badges and climb the leaderboard!",
     },
-    {
-      icon: <Zap className="w-6 sm:w-8 h-6 sm:h-8 text-primary" />,
-      title: "Daily Bonuses",
-      description: "Get free coins every day to keep playing!",
-    },
   ];
 
   return (

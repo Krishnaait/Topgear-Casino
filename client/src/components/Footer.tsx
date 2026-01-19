@@ -74,7 +74,6 @@ export default function Footer() {
             <h4 className="font-semibold text-foreground mb-4">Contact</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>Email: support@topgear.com</li>
-              <li>Phone: +91 (080) XXXX-XXXX</li>
               <li>
                 <Link href="/contact" className="text-primary hover:underline">
                   Contact Form

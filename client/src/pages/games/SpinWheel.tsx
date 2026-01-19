@@ -181,12 +181,12 @@ export default function SpinWheel() {
 
         {/* Info */}
         <div className="bg-card border border-border rounded-xl p-6">
-          <h3 className="text-lg font-semibold text-foreground mb-4">Daily Bonus Spin</h3>
+          <h3 className="text-lg font-semibold text-foreground mb-4">Spin Wheel</h3>
           <ul className="space-y-2 text-sm text-muted-foreground">
-            <li>✓ Spin once every 24 hours</li>
+            <li>✓ Spin to win coins</li>
             <li>✓ Win between 25 and 300 coins</li>
             <li>✓ Free to play - no bet required</li>
-            <li>✓ Bonus coins are added to your balance instantly</li>
+            <li>✓ Coins are added to your balance instantly</li>
           </ul>
         </div>
       </div>
