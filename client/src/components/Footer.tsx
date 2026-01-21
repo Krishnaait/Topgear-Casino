@@ -85,9 +85,12 @@ export default function Footer() {
 
         {/* Disclaimer Banner */}
         <div className="border-t border-border pt-8 mb-8">
-          <div className="bg-muted/20 border border-muted rounded-lg p-4">
+          <div className="bg-muted/20 border border-muted rounded-lg p-4 space-y-3">
             <p className="text-xs text-muted-foreground">
               <strong>Disclaimer:</strong> TOPGEAR Social Casino is for entertainment purposes only. No real money is involved. Virtual coins have no real-world value and cannot be withdrawn or exchanged for cash. Must be 18+ to play.
+            </p>
+            <p className="text-xs text-muted-foreground">
+              <strong>Brand Affiliation Notice:</strong> This business does not affiliate with any other brand. TOPGEAR Social Casino is completely operated by TOPGEAR AUTOMOTIVE SOLUTIONS PRIVATE LIMITED. All rights reserved.
             </p>
           </div>
         </div>
